@@ -130,8 +130,7 @@ add_filter( 'woocommerce_available_payment_gateways', 'eugmag_filter_gateways', 
 
 // add google maps API key to ACF backend
 add_filter('acf/settings/google_api_key', function () {
-	//return 'AIzaSyAJ0dhHd1rkPzg9cxSYz0-mqRyXaKsJZJg';
-	return 'AIzaSyDV43uZacJPgWA12ncyfSo5p0e4HymFNF8';
+	return rs_get_google_maps_api_key();
 });
 
 /**
