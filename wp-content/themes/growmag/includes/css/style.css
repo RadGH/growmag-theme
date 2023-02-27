@@ -719,8 +719,10 @@ figure.wp-caption figcaption {
 	margin: 0 2% 0 0;
 }
 
-.post:nth-child(3n) {
-	margin-right: 0;
+@media ( min-width: 767px ) {
+	.post:nth-child(3n) {
+		margin-right: 0;
+	}
 }
 
 .post a {
@@ -910,7 +912,7 @@ figure.wp-caption figcaption {
 	}
 
 	.home-header-post-wrapper .category-header {
-		margin-left: 0;
+		margin-left: 20px;
 	}
 }
 
@@ -2199,5 +2201,9 @@ Responsive Design
 
 	.home .cover-logo {
 		max-width: calc(100% - 115px);
+	}
+
+	.home-header-post-wrapper .overlay .readmore {
+		display: none;
 	}
 }

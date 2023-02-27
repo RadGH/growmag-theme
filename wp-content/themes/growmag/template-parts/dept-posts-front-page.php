@@ -67,11 +67,13 @@ function output_posts_from_query( $get_posts_query, $deptLink, $deptName ) {
 				echo '<div class="header-line">';
 				echo '<h2 class="category-header"><a href="' . $deptLink . '">' . $deptName . '</a></h2>';
 				echo '</div>';
-				echo '<a href="' . get_permalink( $post->ID ) . '"><div class="overlay">';
+				echo '<div class="overlay">';
 				echo '<h3>' . $post->post_title . '</h3>';
 				echo '<h4 class="subtitle">' . get_field( 'subtitle', $post->ID ) . '</h4>';
+				echo '<a href="' . get_permalink( $post->ID ) . '">';
 				echo '<div class="readmore button button-white">Read Now</div>';
-				echo '</div></a>';
+				echo '</a>';
+				echo '</div>';
 				echo '</div>';
 				$firstpost = false;
 			} else {
