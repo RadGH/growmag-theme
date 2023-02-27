@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'BookmanOldStyleStd';
+    src: url('fonts/BookmanOldStyleStd.eot');
+    src: url('fonts/BookmanOldStyleStd.eot') format('embedded-opentype'),
+         url('fonts/BookmanOldStyleStd.woff2') format('woff2'),
+         url('fonts/BookmanOldStyleStd.woff') format('woff'),
+         url('fonts/BookmanOldStyleStd.ttf') format('truetype'),
+         url('fonts/BookmanOldStyleStd.svg#BookmanOldStyleStd') format('svg');
+}

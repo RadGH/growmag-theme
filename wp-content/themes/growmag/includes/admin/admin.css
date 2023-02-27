@@ -1,0 +1,116 @@
+/* ==========
+Advanced Custom Fields
+========== */
+
+/* Photoshop-like transparency grid background for image uploads */
+.acf-image-uploader img {
+	min-width: 0;
+	min-height: 0;
+	background-size: 16px 16px;
+	background-color: #FEFEFE;
+	background-image: linear-gradient(45deg, #D5D5D5 25%, transparent 25%, transparent 75%, #D5D5D5 75%, #D5D5D5),
+	linear-gradient(45deg, #D5D5D5 25%, transparent 25%, transparent 75%, #D5D5D5 75%, #D5D5D5);
+	background-position: 4px 4px, 12px 12px;
+}
+
+/* Fix layout issue of message descriptions when using left-aligned labels */
+.acf-field-message td.acf-input > :first-child {
+	margin-top: 0;
+}
+.acf-field-message td.acf-input > :last-child {
+	margin-bottom: 0;
+}
+
+/* ==========
+Single page tracking codes
+========== */
+.acf-field-5625594880400 > .acf-label {
+	display: none;
+}
+
+.acf-field-5625594880400 .acf-hl > li.acf-fr {
+	float: none;
+}
+
+.acf-field-5625594880400 .acf-button.blue {
+	color: #333 !important;
+	background: #F9F9F9;
+	border: #BBB solid 1px;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset;
+}
+
+.acf-field-5625594880400 .acf-repeater-add-row.disabled {
+	display: none !important;
+}
+
+
+.acf-field-5625594880400 .acf-table,
+.acf-field-5625594880400 .acf-fields > .acf-field {
+	padding: 0 0 15px;
+	border: none;
+}
+
+.acf-field-5625594880400 .acf-table .acf-row,
+.acf-field-5625594880400 .acf-table .acf-row .acf-field,
+.acf-field-5625594880400 .acf-table .acf-row td.remove {
+	margin: 0;
+	padding: 0;
+	width: auto;
+	border: none;
+}
+
+.acf-field-5625594880400 .acf-table .acf-row td.remove {
+	width: 20px;
+	padding-left: 10px;
+}
+
+
+/* ==========
+Remove Nagware
+========== */
+
+/* WP Smush: Remove nag screen on dashboard */
+.notice.frash-notice.frash-notice-rate {
+	display: none !important;
+}
+
+/* SEO Ultimate: Remove completely inconsistent admin bar icon */
+#adminmenu .toplevel_page_seo div.wp-menu-image {
+	background: none !important;
+}
+
+/* SEO Ultimate: Remove dashboard advertisement */
+div#sdf_dashboard_widget {
+	display: none !important;
+}
+
+/* Google Analytics Dashboard: Remove update notifications */
+div#gadwp-notice {
+	display: none !important;
+}
+
+/* Fix SEO Ultimate styling the class "blue" with stupid font sizes */
+.blue {
+	font-size: 13px;
+	font-weight: 400;
+}
+
+/* ==========
+General WordPress
+========== */
+
+/* Fix the admin dashboard displaying oddly in Chrome 45 */
+#adminmenu {
+	transform: translateZ(0);
+}
+
+/* Allow checkbox lists to be resized vertically. Great for viewing many categories when editing a page, or editing menus within appearance > menus */
+.categorydiv div.tabs-panel,
+.customlinkdiv div.tabs-panel,
+.posttypediv div.tabs-panel,
+.taxonomydiv div.tabs-panel,
+.wp-tab-panel {
+	max-height: none;
+	resize: vertical;
+	height: 200px;
+}

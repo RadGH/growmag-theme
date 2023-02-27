@@ -1,0 +1,107 @@
+[
+    {
+        "key": "group_55ce38c7a3d8d",
+        "title": "Branding",
+        "fields": [
+            {
+                "key": "field_55ce38e5f2e17",
+                "label": "Logo",
+                "name": "logo",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "preview_size": "thumbnail-uncropped",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "jpg, jpeg, png, gif"
+            },
+            {
+                "key": "field_55e0b565b478a",
+                "label": "WooCommerce",
+                "name": "use_logo_for_woocommerce",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Use logo as Woocommerce email header",
+                "default_value": 1
+            },
+            {
+                "key": "field_55ce39478998e",
+                "label": "Open Graph Image",
+                "name": "open_graph",
+                "type": "image",
+                "instructions": "1200 Square recommended. 1200 x 630 will be cropped by Facebook. See og-template.png in the theme images folder.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "preview_size": "thumbnail-uncropped",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "jpg, jpeg, png, gif"
+            },
+            {
+                "key": "field_55ce40a2d6011",
+                "label": "Copyright Text",
+                "name": "copyright_text",
+                "type": "wysiwyg",
+                "instructions": "[copy] = &copy; [reg] = &reg; [tm] = &trade; [year] = 20**",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "[copy][year] Copyright YOUR SITE NAME\r\nAll Rights Reserved\r\n[footer-tag]",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "theme-options-branding"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "left",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    }
+]

@@ -1,0 +1,191 @@
+[
+    {
+        "key": "group_55d24fc25bda9",
+        "title": "Tracking",
+        "fields": [
+            {
+                "key": "field_55ef4527138a7",
+                "label": "Google Analytics Notice",
+                "name": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Don't track analytics here. Instead, use the plugin <a href=\"admin.php?page=gadash_settings\" target=\"_blank\">Google Analytics Dashboard for WP<\/a>.",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            },
+            {
+                "key": "field_55d24fed99ee9",
+                "label": "Header",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_55d2501799eee",
+                "label": "Universal",
+                "name": "tracking_head",
+                "type": "textarea",
+                "instructions": "This code displays on every page. Accepts javascript, css, or meta tags.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": 5,
+                "new_lines": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_55d2502c99eef",
+                "label": "Checkout Complete",
+                "name": "tracking_head_checkout",
+                "type": "textarea",
+                "instructions": "Run only once per order, after WooCommerce checkout has been completed. Order status must be completed, processing, or closed.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": 5,
+                "new_lines": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_55d24ffb99eea",
+                "label": "Body",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_55d2500199eeb",
+                "label": "Universal",
+                "name": "tracking_body",
+                "type": "textarea",
+                "instructions": "This code displays on every page. Accepts javascript, css, or meta tags.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": 5,
+                "new_lines": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_55d2506599ef0",
+                "label": "Checkout Complete",
+                "name": "tracking_body_checkout",
+                "type": "textarea",
+                "instructions": "Run only once per order, after WooCommerce checkout has been completed. Order status must be completed, processing, or closed.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": 5,
+                "new_lines": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_563138dc2edf0",
+                "label": "Specific Page",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_563138e62edf1",
+                "label": "Page Tracking",
+                "name": "page_tracking",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "You can add tracking codes to a specific page. When editing the page, use the \"Tracking Code\" widget which is displays below the publish button on the sidebar.",
+                "new_lines": "wpautop",
+                "esc_html": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "theme-options-tracking"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "left",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    }
+]

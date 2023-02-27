@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'BlissLight';
+    src: url('fonts/blissLight.eot');
+    src: url('fonts/blissLight.eot') format('embedded-opentype'),
+         url('fonts/blissLight.woff2') format('woff2'),
+         url('fonts/blissLight.woff') format('woff'),
+         url('fonts/blissLight.ttf') format('truetype'),
+         url('fonts/blissLight.svg#bliss_light') format('svg');
+}

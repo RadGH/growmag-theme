@@ -1,0 +1,117 @@
+<?php
+
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group(array(
+	'key' => 'group_5759fd2700ce8',
+	'title' => 'Ad Location',
+	'fields' => array(
+		array(
+			'key' => 'field_5759fd27056e8',
+			'label' => 'Locations',
+			'name' => 'ad-locations',
+			'type' => 'checkbox',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'Before Header (full width)' => '<strong>Before Header (full width)</strong> &ndash; 553&times;128px',
+				'Content (full width)' => '<strong>Content (full width)</strong> &ndash; 1080&times;250px',
+				'Content (2/3 width)' => '<strong>Content (2/3 width)</strong> &ndash; 600&times;250px',
+				'Content (1/3 width)' => '<strong>Content (1/3 width)</strong> &ndash; 400&times;250px',
+				'Article Sidebar (first)' => '<strong>Article Sidebar (first)</strong> &ndash; 300&times;250px',
+				'Article Sidebar (second)' => '<strong>Article Sidebar (second)</strong> &ndash; 300&times;250px',
+				'Article Sidebar (third)' => '<strong>Article Sidebar (third)</strong> &ndash; 300&times;250px',
+				'Footer' => '<strong>Footer</strong> &ndash; 300&times;250px &ndash; <em>Appears in footer of every page.</em>',
+				'Dining Guide Sidebar' => '<strong>Dining Guide Sidebar</strong> &ndash; 300&times;250px &ndash; <em>Appears in sidebar of the dining guide and on individual restaurant pages.</em>',
+			),
+			'allow_custom' => 0,
+			'save_custom' => 0,
+			'default_value' => array(
+			),
+			'layout' => 'vertical',
+			'toggle' => 0,
+			'return_format' => 'value',
+		),
+		array(
+			'key' => 'field_5cc8aa785136b',
+			'label' => 'Show only on specific posts/pages?',
+			'name' => 'show_only_on_specific_postspages',
+			'type' => 'true_false',
+			'instructions' => 'If any posts or pages are selected, this ad will not appear anywhere else, but will have higher priority on those posts/pages than ads which are not restricted (i.e. for a given post, ads restricted to that post will always be shown instead of ads that can appear on any post).',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'message' => 'Restrict by page/post',
+			'default_value' => 0,
+			'ui' => 0,
+			'ui_on_text' => '',
+			'ui_off_text' => '',
+		),
+		array(
+			'key' => 'field_5cc8a7a4bdab9',
+			'label' => '',
+			'name' => 'show_on_posts_pages',
+			'type' => 'relationship',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5cc8aa785136b',
+						'operator' => '==',
+						'value' => '1',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'post_type' => array(
+				0 => 'post',
+				1 => 'page',
+				2 => 'weekender',
+			),
+			'taxonomy' => '',
+			'filters' => array(
+				0 => 'search',
+				1 => 'post_type',
+				2 => 'taxonomy',
+			),
+			'elements' => '',
+			'min' => '',
+			'max' => '',
+			'return_format' => 'id',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'ld_ad',
+			),
+		),
+	),
+	'menu_order' => -10,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+));
+
+endif;

@@ -1,0 +1,65 @@
+/* One column checkout page */
+/*
+.woocommerce .col2-set#customer_details .col-1, .woocommerce-page .col2-set#customer_details .col-1,
+.woocommerce .col2-set#customer_details .col-2, .woocommerce-page .col2-set#customer_details .col-2 {
+	width: auto;
+	float: none;
+}
+*/
+
+/* Order Received Payment Summary */
+.woocommerce .order_details {
+    padding: 0;
+}
+
+.woocommerce .order_details li {
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+
+/* Fix for WooCommerce star rating system */
+.woocommerce p.stars a {
+	line-height: 1em;
+	font-family: gill-sans-nova, sans-serif;
+}
+
+.woocommerce p.stars a.star-1.active:after,
+.woocommerce p.stars a.star-1:hover:after {
+	content: "\e020";
+}
+.woocommerce p.stars a.star-2.active:after,
+.woocommerce p.stars a.star-2:hover:after {
+	content: "\e020\e020";
+}
+.woocommerce p.stars a.star-3.active:after,
+.woocommerce p.stars a.star-3:hover:after {
+	content: "\e020\e020\e020";
+}
+.woocommerce p.stars a.star-4.active:after,
+.woocommerce p.stars a.star-4:hover:after {
+	content: "\e020\e020\e020\e020";
+}
+.woocommerce p.stars a.star-5.active:after,
+.woocommerce p.stars a.star-5:hover:after {
+	content: "\e020\e020\e020\e020\e020";
+}
+
+.woocommerce p.stars a:before,
+.woocommerce p.stars.selected a.active:before,
+.woocommerce p.stars:hover a:before {
+	content: "\e021";
+	opacity: 0;
+}
+
+/* Select2 dropdowns */
+html .select2-dropdown {
+	top: -27px;
+	color: #000;
+}
+
+html .select2-search__field {
+	margin: 0;
+	max-width: none;
+}

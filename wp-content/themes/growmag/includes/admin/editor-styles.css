@@ -1,0 +1,7 @@
+html, body {
+	 height: auto;
+ }
+
+body#tinymce {
+	padding: 15px 20px;
+}

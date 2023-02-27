@@ -1,0 +1,15 @@
+/*
+Global.css
+
+This stylesheet is included on all portions of the website. This includes the front end, the backend, and the login screens.
+*/
+
+#wpadminbar #wp-admin-bar-management>.ab-item:before {
+	content: "\f107";
+	top: 2px;
+}
+
+#wpadminbar #wp-admin-bar-post-types>.ab-item:before {
+	content: "\f100";
+	top: 2px;
+}

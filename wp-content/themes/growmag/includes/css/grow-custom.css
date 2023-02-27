@@ -1,0 +1,175 @@
+/*
+Version 1.2
+
+Fonts from adobe
+
+<link rel="stylesheet" href="https://use.typekit.net/mnm5gkb.css">
+
+Titles:
+font-family: goudy-old-style, serif; (replaces bliss light)
+font-style: normal;
+font-weight: 400, 700, 800;
+
+Text:
+font-family: gill-sans-nova, sans-serif; (Replaces helvetica black)
+font-style: normal; (italic only for 400)
+font-weight: 400, 700, 800;
+
+Text (condensed):
+font-family: gill-sans-nova-condensed, sans-serif;
+font-style: normal;
+font-weight: 400, 600;
+
+*/
+
+/* General */
+.overlay .readmore {
+	float: none;
+}
+
+/* Front Page */
+#content {
+	padding-top: 1px;
+	margin-top: -1px;
+}
+
+/* Footer */
+.nav-departments  .widget_block a {
+	font-family: gill-sans-nova, sans-serif;
+	font-size: 12px;
+	font-weight: 400;
+}
+
+
+/* Cover panel */
+.cover-title h2::after {
+	content: '';
+	display: block;
+	clear: both;
+	width: 75%;
+	margin: 12px auto 0;
+	border-bottom: 2px solid #fff;
+}
+
+@supports (width: fit-content) {
+	.cover-title h2 {
+		width: fit-content;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.cover-title h2::after {
+		width: calc(100% - 60px);
+	}
+}
+
+/* Leaving site popup */
+#field_4_1 {
+	margin: 40px auto 10px;
+	max-width: 320px;
+	width: 100%;
+}
+
+#gform_wrapper_4 .gform_footer .gform_button {
+	margin: 0 auto;
+}
+
+@media ( max-width: 720px ) {
+	#leavingsite-popup .modal {
+		max-width: 90%;
+	}
+
+	#leavingsite-popup .modal h3 {
+		margin-top: 60px;
+	}
+
+	#field_4_1 {
+		margin-top: 30px;
+	}
+}
+
+/* Buttons */
+html .button,
+html [type="submit"],
+html [type="button"],
+html .woocommerce .button {
+	font-weight: 400;
+	font-size: 16px;
+
+	background-color: #32373c;
+	color: #fff;
+	border-radius: 0px;
+	padding: 8px 15px 10px;
+}
+
+html .button:hover,
+html [type="submit"]:hover,
+html [type="button"]:hover,
+html .woocommerce .button:hover {
+	background-color: #495055;
+	color: #fff;
+}
+
+/* WooCommerce Extra Buttons */
+.woocommerce #respond input#submit.alt,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt {
+	background-color: #262626;
+}
+.woocommerce #respond input#submit.alt:hover,
+.woocommerce a.button.alt:hover,
+.woocommerce button.button.alt:hover,
+.woocommerce input.button.alt:hover {
+	background-color: #404040;
+}
+
+.woocommerce [type="submit"][disabled],
+.woocommerce [type="submit"].disabled,
+.woocommerce [type="button"][disabled],
+.woocommerce [type="button"].disabled {
+	background-color: #888888 !important;
+}
+
+/* WooCommerce Products */
+.woocommerce .products {
+	text-align: center;
+}
+
+.woocommerce .products .button.add_to_cart_button {
+	margin-top: 5px !important;
+}
+
+.woocommerce .products h2 {
+	font-family: gill-sans-nova, sans-serif;
+}
+
+.woocommerce ul.products li.product .onsale {
+	width: 50px !important;
+	height: 50px !important;
+}
+
+/* WooCommerce Price */
+.woocommerce ul.products li.product .price,
+.woocommerce div.product p.price,
+.woocommerce div.product span.price {
+	color: #5e5e5e;
+	font-family: gill-sans-nova, sans-serif;
+	font-weight: 600;
+}
+
+/* WooCommerce Single Product Page */
+.woocommerce div.product form.cart .variations td,
+.woocommerce div.product form.cart .variations th {
+	text-align: left;
+}
+
+.woocommerce .quantity .qty {
+	line-height: 1.3;
+	padding: 6px 3px;
+}
+
+/* Gravity forms */
+p.gform_required_legend {
+	display: none;
+}

@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Cataneo';
+    src: url('fonts/Cataneo.eot');
+    src: url('fonts/Cataneo.eot') format('embedded-opentype'),
+         url('fonts/Cataneo.woff2') format('woff2'),
+         url('fonts/Cataneo.woff') format('woff'),
+         url('fonts/Cataneo.ttf') format('truetype'),
+         url('fonts/Cataneo.svg#Cataneo') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}

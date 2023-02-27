@@ -1,0 +1,58 @@
+.ld-ad {
+	display: none;
+}
+
+.ld-ad.ld-ad-type-embed iframe {
+	display: block;
+}
+
+.ld-ad-mobile {
+	display: block;
+}
+
+.ld-ad .ld-ad-inner {
+	position: relative;
+	display: inline-block;
+	min-width: 100px;
+}
+
+.ld-ad .ad-text {
+	position: absolute;
+	bottom: -15px;
+	right: 0;
+	color: #d1d1d1;
+	color: rgba(209, 209, 209, 0.7);
+	font-size: 11px;
+	line-height: 11px;
+	text-transform: uppercase;
+}
+
+.ld-ad a {
+	display: block;
+}
+
+.ld-ad img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+@media ( max-width: 960px ) {
+	.ld-ad-desktop {
+		display: none;
+	}
+	.ld-ad-mobile,
+	.ld-ad-mobile.ld-ad-desktop {
+		display: block;
+	}
+}
+
+@media ( min-width: 961px ) {
+	.ld-ad-mobile {
+		display: none;
+	}
+	.ld-ad-desktop.ld-ad-mobile,
+	.ld-ad-desktop {
+		display: block;
+	}
+}
