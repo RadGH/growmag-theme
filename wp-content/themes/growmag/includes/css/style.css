@@ -589,8 +589,15 @@ h2 {
 }
 
 .post-content figure.wp-caption {
-    margin-left: 0;
-    margin-right: 0;
+	margin: 5px 20px 10px;
+}
+
+.post-content figure.wp-caption.alignleft {
+	margin-left: 0;
+}
+
+.post-content figure.wp-caption.alignright {
+	margin-right: 0;
 }
 
 figure.wp-caption figcaption {
