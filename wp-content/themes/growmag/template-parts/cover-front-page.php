@@ -5,6 +5,7 @@ $front_page_id = gm_get_front_page_id();
 $cover = array(
 	'logo' => array(
 		'image' => get_field( 'logo', 'options', false ),
+		'image_black' => get_field( 'logo_black', 'options', false ),
 		'align' => get_field( 'logo-position', $front_page_id ),
 	),
 
@@ -33,6 +34,11 @@ $cover = array(
 
 	'iconcolor' => get_field( 'cover-icon-color', $front_page_id )
 );
+
+// Use black logo
+if ( $cover['iconcolor'] === 'light' ) {
+	$cover['logo']['image'] = $cover['logo']['image_black'];
+}
 
 // Convert cover image into an inline CSS background property
 if ( $cover['image'] ) {

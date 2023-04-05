@@ -714,6 +714,17 @@ figure.wp-caption figcaption {
 	margin-top: 12px
 }
 
+@media ( min-width: 1200px ) {
+	.cover-inside {
+		max-width: 1200px;
+	}
+
+	.cover-panel {
+		margin-top: 40px;
+		clear: both;
+	}
+}
+
 /* posts */
 .post {
 	background-repeat: no-repeat;

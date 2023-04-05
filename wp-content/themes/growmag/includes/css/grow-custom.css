@@ -42,6 +42,7 @@ font-weight: 400, 600;
 
 
 /* Cover panel */
+/*
 .cover-title h2::after {
 	content: '';
 	display: block;
@@ -49,6 +50,10 @@ font-weight: 400, 600;
 	width: 75%;
 	margin: 12px auto 0;
 	border-bottom: 2px solid #fff;
+}
+
+.cover-header.light-photo .cover-title h2::after {
+	border-bottom-color: #000;
 }
 
 @supports (width: fit-content) {
@@ -62,6 +67,7 @@ font-weight: 400, 600;
 		width: calc(100% - 60px);
 	}
 }
+*/
 
 /* Leaving site popup */
 #field_4_1 {
