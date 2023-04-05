@@ -6,28 +6,28 @@ function ld_ads_get_locations() {
 			"width" => 553,
 			"height" => 128,
 			"desktop" => true,
-			"mobile" => false,
+			"mobile" => true, // was false on 4/5/2023
 			"desc" => ""
 		),		
 		"Content (full width)" => array(
 			"width" => 1080,
 			"height" => 250,
 			"desktop" => true,
-			"mobile" => false,
+			"mobile" => true, // was false on 4/5/2023
 			"desc" => ""
 		),
 		"Content (2/3 width)" => array(
 			"width" => 600,
 			"height" => 250,
 			"desktop" => true,
-			"mobile" => false,
+			"mobile" => true, // was false on 4/5/2023
 			"desc" => ""
 		),
 		"Content (1/3 width)" => array(
 			"width" => 400,
 			"height" => 250,
 			"desktop" => true,
-			"mobile" => false,
+			"mobile" => true, // was false on 4/5/2023
 			"desc" => ""
 		),
 		"Article Sidebar (first)" => array(
