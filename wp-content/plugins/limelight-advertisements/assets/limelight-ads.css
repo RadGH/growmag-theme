@@ -56,3 +56,12 @@
 		display: block;
 	}
 }
+
+@supports ( object-fit: contain ) {
+	.ld-ad img {
+		object-fit: contain;
+		max-width: 100%;
+		width: auto !important;
+		height: auto !important;
+	}
+}

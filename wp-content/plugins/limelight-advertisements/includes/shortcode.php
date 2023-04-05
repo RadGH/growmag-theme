@@ -111,6 +111,14 @@ function ld_ad_shortcode( $atts, $content = '' ) {
 	
 	$js_count ++;
 	
+	if ( ! $ads->have_posts() ) {
+		return '<!-- LDA: Ad position has no results to display for location "'. esc_html($location) .'" -->';
+	}
+	
+	// changed on 4/5/2023
+	// old version used to hard-code the ad instead of using javascript
+	// it seems easier to just use one method for every ad
+	/*
 	if ( $ads->found_posts == 1 ) {
 		// load directly if only one ad in this location
 		$post_id = $ads->posts[0]->ID;
@@ -121,6 +129,7 @@ function ld_ad_shortcode( $atts, $content = '' ) {
 		<?php
 		return ob_get_clean();
 	} elseif ( $ads->found_posts > 1 ) {
+	*/
 		// this location has more than one ad (thus these must be image ads)
 		// load their markup and pass it to js so we can use js to pick one and output
 		$markup = array();
@@ -140,9 +149,10 @@ function ld_ad_shortcode( $atts, $content = '' ) {
 		<script type="text/javascript"> ld_ads_markup[<?php echo $js_count; ?>] = <?php echo json_encode( $markup ); ?>; </script>
 		<?php
 		return ob_get_clean();
+	/*
 	}
+	*/
 	
-	return '<!-- LDA: Ad position has no results to display -->';
 }
 
 add_shortcode( 'ad', 'ld_ad_shortcode' );
