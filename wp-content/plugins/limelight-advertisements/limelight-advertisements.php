@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Limelight - Advertisements
-Version: 1.4.2
+Version: 1.5.0
 Plugin URI: http://www.limelightdept.com/
 Description: Allows you to define advertisement "locations" and independently create advertisements that can display in various locations.
 Author: Radley Sustaire
@@ -15,7 +15,7 @@ if( !defined( 'ABSPATH' ) ) exit;
 
 define( 'LDAds_URL', untrailingslashit(plugin_dir_url( __FILE__ )) );
 define( 'LDAds_PATH', dirname(__FILE__) );
-define( 'LDAds_VERSION', '1.4.2' );
+define( 'LDAds_VERSION', '1.5.0' );
 
 function ldad_init_plugin() {
 	if ( !function_exists('acf') ) {
