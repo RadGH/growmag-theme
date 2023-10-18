@@ -4,7 +4,7 @@ class facebookWidget extends WP_Widget
 {
 
 	public function __construct() {
-		parent::__construct( 'facebookWidget', 'Grow Magazine Facebook Page', array( 'description' => 'Displays Facebook widget for Eugene Magazine.' ) );
+		parent::__construct( 'facebookWidget', 'Grow Magazine Facebook Page', array( 'description' => 'Displays Facebook widget for Grow Magazine.' ) );
 	}
 
 	public function widget( $widget, $instance ) {

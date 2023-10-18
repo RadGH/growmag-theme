@@ -8,7 +8,7 @@ jQuery(function() {
 
 	var was_popup_displayed = function() {
 		var ts_last_displayed = localStorage.getItem('leavingsite-popup-closed') || 0;
-		var ts_30_days_ago = get_timestamp() - (60 * 60 * 24 * 30); // seconds * minutes * hours * days = 30 days in seconds
+		var ts_30_days_ago = get_timestamp() - (60 * 60 * 24 * 7); // seconds * minutes * hours * days = 30 days in seconds
 
 		// last displayed: 1666128875.026
 		// 30 days ago:    1663536875.026
