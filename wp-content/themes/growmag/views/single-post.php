@@ -5,8 +5,8 @@ $term = get_the_category()[0];
 <div class="inside narrow">
 	<article class="main-column">
 		<div class="post-header">
-			<?php the_title( '<h2>', '</h2>' ); ?>
-			<h3 class="subtitle"><?php echo esc_html( get_field( 'subtitle' ) ); ?></h3>
+			<?php the_title( '<h1>', '</h1>' ); ?>
+			<h2 class="subtitle"><?php echo esc_html( get_field( 'subtitle' ) ); ?></h2>
 		</div>
 		<div class="post-content">
 			<div class="social-sharing">

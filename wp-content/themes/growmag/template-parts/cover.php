@@ -81,7 +81,7 @@ if ( is_category() ) {
 			<?php if ( $latest_post_box ) : ?>
 				<div class="overlay">
 					<a href="<?php the_permalink(); ?>">
-						<h3><?php the_title(); ?></h3>
+						<h1><?php the_title(); ?></h1>
 						<h4 class="subtitle"><?php the_field( 'subtitle' ); ?></h4>
 						<div class="readmore button button-white">Read Now</div>
 					</a>

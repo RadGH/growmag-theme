@@ -93,6 +93,7 @@ add_action( 'wp_footer', 'ld_display_tracking_code_body', 30 );
 
 
 // Return true if on checkour or cart page, which do not count within is_woocommerce()
+if ( !function_exists('ld_is_woocommerce_page') ) {
 function ld_is_woocommerce_page() {
 	if ( !is_singular('page') ) return false;
 
@@ -102,6 +103,7 @@ function ld_is_woocommerce_page() {
 	if ( $post_id == get_option('woocommerce_checkout_page_id') ) return true;
 
 	return false;
+}
 }
 
 // Display page markup before woocommerce

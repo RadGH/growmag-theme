@@ -31,3 +31,24 @@ function update_field( $name, $value, $post_id = null, $format = null ) {
 	return true;
 }
 }
+
+// is_woocommerce
+if ( !function_exists('is_woocommerce') ) {
+	function is_woocommerce() {
+		return false;
+	}
+}
+
+// ld_is_woocommerce_page
+if ( !function_exists('ld_is_woocommerce_page') ) {
+	function ld_is_woocommerce_page() {
+		if ( !is_singular('page') ) return false;
+		
+		$post_id = get_the_ID();
+		
+		if ( $post_id == get_option('woocommerce_cart_page_id') ) return true;
+		if ( $post_id == get_option('woocommerce_checkout_page_id') ) return true;
+		
+		return false;
+	}
+}

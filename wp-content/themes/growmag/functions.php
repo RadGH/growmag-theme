@@ -16,7 +16,6 @@ Table of Contents:
 // 1. Theme Function Files
 
 // include_once 'includes/admin/editor-styles.php'; // Custom admin editor styles
-include_once 'functions/fallbacks.php';          // Function fallbacks in case a plugin isn't loaded
 include_once 'functions/install.php';            // Functions triggered when the theme is first activated
 include_once 'functions/enqueue.php';            // Includes various CSS/JS files used throughout the theme
 include_once 'functions/utility.php';            // A variety of custom functions to use within the theme
@@ -73,6 +72,9 @@ if ( defined( 'LDAds_URL' ) ) {
 if ( defined( 'LMNEWS_URL' ) ) {
 	include_once 'plugin-addons/limelight-newsletter.php';
 }
+
+// Fallback functions, in case a plugin isn't loaded
+include_once 'functions/fallbacks.php';
 
 // ===========================
 // 3. Menus & Sidebars
