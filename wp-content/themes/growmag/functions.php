@@ -1,25 +1,5 @@
 <?php
 
-// @TODO: Move this shortcode to the shortcodes folder, and include in part #5 below.
-// [call_to_action] shortcode, used on the front page
-// > A styled contained for a CTA. Content can include: <h2> <p> <a class="button">
-function gm_shortcode_call_to_action( $atts, $content = '', $shortcode_name = 'call_to_action' ) {
-	$atts = shortcode_atts(array(), $atts, $shortcode_name);
-	
-	$content = trim($content);
-	
-	$content = do_shortcode($content);
-	
-	// For some reason the content starts with </p>. Remove that:
-	$content = preg_replace('/^<\/p>\n/', '', $content);
-	
-	// For some reason the end of the content has a <br />. Remove that too:
-	$content = preg_replace('/<br\s*\/?>\s*$/i', '', $content);
-	
-	return '<div class="gm-call-to-action">'. $content . '</div>';
-}
-add_shortcode( 'call_to_action', 'gm_shortcode_call_to_action' );
-
 /* ===========================
 
 Table of Contents:
