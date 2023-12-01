@@ -16,7 +16,7 @@ $post_type = get_post_type();
 // get_template_part( 'template-parts/cover' );
 ?>
 
-<h2 class="digital-issues-title">Digital Issues</h2>
+<h1 class="digital-issues-title">Digital Issues</h1>
 
 <div class="digital-issues-list">
 	<?php

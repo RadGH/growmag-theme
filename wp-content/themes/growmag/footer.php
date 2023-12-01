@@ -11,14 +11,14 @@ gm_page_wrapper_end();
 
             gm_display_secondary_menu();
 			
-			/*
-            if ( $menu = ld_nav_menu( 'footer', 'pages' ) ) {
-                echo '<nav class="nav-menu nav-footer nav-pages">';
-                echo $menu;
-                echo '<ul class="nav-login"><li><a href="/wp-admin/">Log in</a></li></ul>';
-                echo '</nav>';
-            }
-			*/
+			
+//             if ( $menu = ld_nav_menu( 'footer', 'pages' ) ) {
+//                 echo '<nav class="nav-menu nav-footer nav-pages">';
+//                 echo $menu;
+//                 echo '<ul class="nav-login"><li><a href="https://growmag.com/wp-login.php?redirect_to=https://growmag.com/wp-admin/&reauth=1">Log in</a></li></ul>';
+//                 echo '</nav>';
+//             }
+			
             
             ld_social_menu();
             ?>
