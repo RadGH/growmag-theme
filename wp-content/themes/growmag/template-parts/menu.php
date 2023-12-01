@@ -30,6 +30,8 @@
 					echo '</nav>';
 				}
 				*/
+				
+				ld_social_menu();
 				?>
 			</div>
 		</div>
