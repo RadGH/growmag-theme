@@ -53,7 +53,7 @@ if ( $img_id && $m = ld_get_attachment_mobile( $img_id ) ) {
 			<?php if ( ! $using_dept_header ) : ?>
 				<div class="overlay">
 					<a href="<?php the_permalink(); ?>">
-						<h3><?php the_title(); ?></h3>
+						<h3 class="title"><?php the_title(); ?></h3>
 						<h4 class="subtitle"><?php the_field( 'subtitle' ); ?></h4>
 						<div class="readmore button button-white">Read Now</div>
 					</a>

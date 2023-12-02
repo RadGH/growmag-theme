@@ -45,48 +45,67 @@ foreach ( $menu as $deptID ) {
 
 
 function output_posts_from_query( $get_posts_query, $deptLink, $deptName ) {
-	if ( $get_posts_query ) :
-		echo '<div class="layout-row home-dept-row clear inside">';
-		$firstpost = true;
-		foreach ( $get_posts_query as $post ) {
-			get_field( 'photo_darkness', $post->ID ) == 'dark' ? $classes = 'dark-photo' : $classes = 'light-photo';
-			
-			if ( $firstpost ) {
-				$classes .= ' header-post header-standard';
-				$img = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'cover-large' );
-			}else{
-				$img = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'cover-small' );
-			}
-			
-			if ( empty($img) ) $img = array( '' );
-			
-			echo '<div class="post ' . $classes . '" style="background-image: url(' . $img[0] . ')">';
-			
-			if ( $firstpost ) {
-				echo '<div class="home-header-post-wrapper">';
-				echo '<div class="header-line">';
-				echo '<h2 class="category-header"><a href="' . $deptLink . '">' . $deptName . '</a></h2>';
-				echo '</div>';
-				echo '<div class="overlay">';
-				echo '<h3>' . $post->post_title . '</h3>';
-				echo '<h4 class="subtitle">' . get_field( 'subtitle', $post->ID ) . '</h4>';
-				echo '<a href="' . get_permalink( $post->ID ) . '">';
-				echo '<div class="readmore button button-white">Read Now</div>';
-				echo '</a>';
-				echo '</div>';
-				echo '</div>';
-				$firstpost = false;
-			} else {
-				echo '<a href="' . get_permalink( $post->ID ) . '"><div class="overlay">';
-				echo '<h3>' . $post->post_title;
-				if ( get_the_title() && get_field( 'subtitle', get_the_ID() ) ) {
-					echo ':<br />';
-				}
-				echo '<span class="overlay-subtitle">' . get_field( 'subtitle', $post->ID ) . '</span></h3>';
-				echo '</div></a>';
-			}
-			echo '</div>';
+	if ( ! $get_posts_query ) return;
+	
+	echo '<div class="layout-row home-dept-row clear inside">';
+	
+	$firstpost = true;
+	
+	foreach ( $get_posts_query as $post ) {
+		get_field( 'photo_darkness', $post->ID ) == 'dark' ? $classes = 'dark-photo' : $classes = 'light-photo';
+		
+		if ( $firstpost ) {
+			$classes .= ' header-post header-standard';
+			$img = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'cover-large' );
+		}else{
+			$img = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'cover-small' );
 		}
-		echo '</div>';
-	endif;
+		
+		if ( empty($img) ) $img = array( '' );
+		
+		echo '<div class="post ' . $classes . '" style="background-image: url(' . $img[0] . ')">';
+		
+		if ( $firstpost ) {
+			echo '<div class="home-header-post-wrapper">';
+			
+			echo '<div class="header-line">';
+				echo '<h2 class="category-header"><a href="' . $deptLink . '">' . $deptName . '</a></h2>';
+			echo '</div>';
+			
+			gm_display_secondary_overlay( $post->ID, get_permalink() );
+			
+			/*
+			echo '<div class="overlay">';
+				echo '<h3 class="title">' . $title . '</h3>';
+				if ( $subtitle ) echo '<h4 class="subtitle">' . $subtitle . '</h4>';
+				echo '<a href="' . get_permalink( $post->ID ) . '">';
+				if ( $firstpost ) {
+					echo '<div class="readmore button button-white">Read Now</div>';
+				}
+				echo '</a>';
+			echo '</div>';
+			*/
+			
+			echo '</div>'; // end .home-header-post-wrapper
+			
+		} else {
+			
+			gm_display_secondary_overlay( $post->ID );
+			
+			/*
+			echo '<a href="' . get_permalink( $post->ID ) . '">';
+			echo '<div class="overlay">';
+			echo '<h3 class="title">' . $title . '</h3>';
+			if ( $subtitle ) echo '<h4 class="subtitle">' . $subtitle . '</h4>';
+			echo '</div>';
+			echo '</a>';
+			*/
+		}
+		
+		echo '</div>'; // end .post
+		
+		$firstpost = false;
+	}
+	
+	echo '</div>'; // end .layout-row
 }

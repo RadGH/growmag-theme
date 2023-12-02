@@ -78,15 +78,22 @@ if ( is_category() ) {
 				<div class="eugmaglogo"><a href="/"><?php bloginfo( 'title' ); ?></a></div>
 			<?php } ?>
 			
-			<?php if ( $latest_post_box ) : ?>
+			<?php
+			if ( $latest_post_box ) {
+				gm_display_primary_overlay( get_the_ID(), get_permalink() );
+				
+				/*
+				?>
 				<div class="overlay">
 					<a href="<?php the_permalink(); ?>">
-						<h1><?php the_title(); ?></h1>
+						<h1 class="title"><?php the_title(); ?></h1>
 						<h4 class="subtitle"><?php the_field( 'subtitle' ); ?></h4>
 						<div class="readmore button button-white">Read Now</div>
 					</a>
 				</div>
-			<?php endif; ?>
+				<?php
+				*/
+			} ?>
 			
 			<?php
 			if ( $category_link && $category_title ) {

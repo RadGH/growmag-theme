@@ -416,3 +416,72 @@ function gm_shortcode_call_to_action( $atts, $content = '', $shortcode_name = 'c
 	return '<div class="gm-call-to-action">'. $content . '</div>';
 }
 add_shortcode( 'call_to_action', 'gm_shortcode_call_to_action' );
+
+// Get the subtitle for a post
+function gm_get_the_subtitle( $post_id = null ) {
+	if ( $post_id === null ) $post_id = get_the_ID();
+	
+	$subtitle = get_field( 'subtitle', $post_id );
+	// $subtitle = get_field( 'lead_in', $post_id );
+	if ( $subtitle ) return $subtitle;
+	
+	return false;
+}
+
+/**
+ * Template function to get an overlay with title, subtitle, and optional button
+ * Used on archives like https://growmag.com/category/feature/
+ *
+ * @param int|null $post_id      Post ID, optional
+ * @param string $button_url     Button URL
+ * @param string $button_label   Button text
+ * @param string $_h1            Element used for title
+ * @param string $_h2            Element used for subtitle
+ *
+ * @return void
+ */
+function gm_display_primary_overlay( $post_id = null, $button_url = null, $button_label = 'Read Now', $is_primary = true ) {
+	if ( $post_id === null ) $post_id = get_the_ID();
+	
+	$title = get_the_title( $post_id );
+	$subtitle = gm_get_the_subtitle( $post_id );
+	
+	?>
+	<div class="overlay">
+		
+		<?php
+		if ( $button_url !== null ) {
+			echo '<a href="'. esc_attr($button_url) .'">';
+		}
+		
+		if ( $is_primary ) {
+			echo $title ? '<h1 class="title">' . esc_html( $title ) . '</h1>' : '';
+			echo $subtitle ? '<h2 class="subtitle">' . esc_html( $subtitle ) . '</h2>' : '';
+		}else{
+			echo $title ? '<h3 class="title">' . esc_html( $title ) . '</h3>' : '';
+			echo $subtitle ? '<h4 class="subtitle">' . esc_html( $subtitle ) . '</h4>' : '';
+		}
+		
+		if ( $button_url !== null && $button_label !== null ) {
+			echo '<div class="readmore button button-white">'. esc_html($button_label) .'</div>';
+		}
+		
+		if ( $button_url !== null ) {
+			echo '</a>';
+		}
+		?>
+		
+	</div>
+	<?php
+}
+
+/**
+ * Display the title and subtitle overlay for a post, used for posts in an archive layout
+ *
+ * @param $post_id
+ *
+ * @return void
+ */
+function gm_display_secondary_overlay( $post_id = null, $button_url = null, $button_label = 'Read Now' ) {
+	gm_display_primary_overlay( $post_id, $button_url, $button_label, false );
+}

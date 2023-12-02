@@ -6,8 +6,12 @@ $img = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'cove
 
 <article <?php post_class( $classes ); ?> style="background-image: url(<?php echo $img[0]; ?>);">
 	<a href="<?php the_permalink(); ?>">
+		<?php
+		gm_display_secondary_overlay();
+		/*
 		<div class="overlay">
-			<h3><?php
+			?>
+			<h3 class="title"><?php
 				the_title();
 				if ( get_the_title() && get_field( "subtitle" ) ) {
 					echo ':<br />';
@@ -15,5 +19,7 @@ $img = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'cove
 				echo '<span class="overlay-subtitle">' . get_field( 'subtitle' ) . '</span>';
 				?></h3>
 		</div>
+		*/
+		?>
 	</a>
 </article>

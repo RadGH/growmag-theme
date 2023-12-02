@@ -1,5 +1,5 @@
 /*
-Version 1.3.2
+Version 1.3.3
 */
 
 /*
@@ -509,16 +509,33 @@ h2 {
 	padding: 0 0 20px;
 }
 
-.loop-header h1, .loop-header h2, .loop-header h3 {
+.loop-header h1,
+.loop-header h2,
+.loop-header h3 {
 	margin-top: 0
 }
 
 .loop-header h1 {
-	margin: 1em 0 .5em;
+	margin: 0;
 	text-transform: uppercase;
-	font-family: goudy-old-style, serif;
 	font-weight: 300;
 	font-style: normal;
+	font-size: 26px;
+	line-height: 1.2;
+
+	font-family: goudy-old-style, serif;
+	font-size: 26px;
+	line-height: 1.2;
+}
+
+@media ( min-width: 540px ) {
+	.loop-header .title {
+		margin: 0;
+		font-family: gill-sans-nova, sans-serif;
+		font-weight: 900;
+		text-transform: uppercase;
+		font-size: 30px;
+	}
 }
 
 /* Drop shadows */
@@ -767,27 +784,48 @@ figure.wp-caption figcaption {
 	width: 100%;
 }
 
-.overlay h3 {
+/* Major overlay / floating section */
+.floating-header .title,
+.overlay .title {
 	margin: 0;
+
 	font-family: gill-sans-nova, sans-serif;
+	font-size: 24px;
+	line-height: 1.2;
+
 	font-weight: 900;
 	text-transform: uppercase;
-	font-size: 15px;
-	line-height: 1.2;
 }
 
-.overlay span.overlay-subtitle {
-	font-weight: 300;
-	font-family: gill-sans-nova, Helvetica, Arial, sans-serif;
-	text-transform: none;
-	display: block;
-}
-
+/* Major subtitle */
+.floating-header .subtitle,
 .overlay .subtitle {
 	font-family: gill-sans-nova, Helvetica, Arial, sans-serif;
 	margin: 0;
 	font-weight: 300;
 	font-size: 30px;
+	line-height: 1.2;
+	text-transform: none;
+}
+
+
+/* Minor overlay */
+.overlay h3.title {
+	font-size: 15px;
+}
+.overlay h4.subtitle {
+	font-size: 15px;
+}
+
+/* Front page - First of 3 featured articles, desktop */
+@media (min-width: 960px) {
+	.home-header-post-wrapper .overlay h3.title {
+		font-size: 24px;
+	}
+
+	.home-header-post-wrapper .overlay h4.subtitle {
+		font-size: 24px;
+	}
 }
 
 .overlay .readmore {
@@ -855,12 +893,6 @@ figure.wp-caption figcaption {
 		max-width: 600px;
 		width: 100%;
 	}
-}
-
-.cover-header .overlay h3 {
-	font-size: 24px;
-	overflow: hidden;
-	margin-bottom: 2px;
 }
 
 /* homepage */
@@ -970,32 +1002,8 @@ figure.wp-caption figcaption {
 	margin: 0 0 10px;
 }
 
-.single .post-header {
-	transform: translate(0, -100%);
-	margin-top: 1px;
-	position: absolute;
-	background: #fff;
-	padding: 10px 15px 0;
-	margin-left: -15px;
-	max-height: 260px;
-	width: calc(100%);
-}
-
 .single .post-content {
 	padding: 1em 0
-}
-
-.single .post-header h1 {
-	margin-top: 0;
-}
-
-.single .post-header h2 {
-	margin: 0;
-	font-family: gill-sans-nova, sans-serif;
-	font-weight: 900;
-	text-transform: uppercase;
-	font-size: 24px;
-	line-height: 1.2;
 }
 
 .single .subtitle {
@@ -1014,6 +1022,45 @@ figure.wp-caption figcaption {
 	margin: 0 0 30px;
 }
 
+/* Floating header */
+.floating-header {
+	transform: translate(0, -100%);
+	margin-top: 1px;
+	position: absolute;
+	background: #fff;
+	padding: 10px 15px 0;
+	margin-left: -15px;
+	max-height: 260px;
+	width: calc(100%);
+}
+
+@media ( min-width: 540px ) {
+	.floating-header {
+		background: #fff;
+		transform: translate(0, -100%);
+		padding: 10px 15px 5px;
+		margin: 1px -15px -50px;
+	}
+}
+
+@media (max-width: 1023px) {
+	.floating-header {
+		transform: none;
+		position: static;
+		padding: 10px 0 0;
+		margin: 0;
+		max-height: none;
+		width: 100%;
+	}
+}
+
+@media (max-width: 479px) {
+	.floating-header .subtitle {
+		font-size: 20px;
+	}
+}
+/* End: Floating header */
+
 /* Post headers with mobile image alt */
 .cover-front-image-mobile-alt {
 	height: 100%;
@@ -1030,25 +1077,6 @@ figure.wp-caption figcaption {
 @media ( max-width: 768px ) {
 	.cover-header.has-mobile-alt {
 		background-image: none !important;
-	}
-}
-
-/* pages */
-@media ( min-width: 540px ) {
-	body.page .loop-header {
-		background: #fff;
-		transform: translate(0, -100%);
-		padding: 10px 15px 5px;
-		margin: 1px -15px -50px;
-	}
-
-	body.page .loop-header h1.loop-title {
-		margin: 0;
-		font-family: gill-sans-nova, sans-serif;
-		font-weight: 900;
-		text-transform: uppercase;
-		font-size: 30px;
-		line-height: 1.2;
 	}
 }
 
@@ -1645,10 +1673,6 @@ body.woocommerce .woocommerce-breadcrumb a:hover {
 	display: none;
 }
 
-.post-type-archive-product .loop-header {
-	float: left;
-}
-
 .post-type-archive-product .woocommerce-result-count {
 	clear: both;
 }
@@ -1707,10 +1731,6 @@ section.related.products {
 }
 
 @media ( max-width: 960px ) {
-	.post-type-archive-product .loop-header {
-		float: none;
-	}
-
 	#woocommerce-category-filter {
 		margin: 0 0 30px;
 		padding-left: 0;
@@ -1829,15 +1849,6 @@ Responsive Design
 		padding-left: 0;
 	}
 
-	.single .post-header {
-		transform: none;
-		position: static;
-		padding: 10px 0 0;
-		margin: 0;
-		max-height: none;
-		width: 100%;
-	}
-
 	.single .post-content {
 		padding: 1em 0
 	}
@@ -1934,6 +1945,7 @@ Responsive Design
 		width: 100%;
 	}
 
+	.floating-header .subtitle,
 	.overlay .subtitle {
 		font-size: 24px;
 	}
@@ -2064,10 +2076,6 @@ Responsive Design
 
 	.home .dept-post.notheader-post:last-child {
 		margin-left: 0;
-	}
-
-	.single .post-header h2 {
-		font-size: 20px;
 	}
 
 	.single .subtitle {

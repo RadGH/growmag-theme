@@ -4,7 +4,7 @@ $term = get_the_category()[0];
 
 <div class="inside narrow">
 	<article class="main-column">
-		<div class="post-header">
+		<div class="floating-header">
 			<?php the_title( '<h1 class="title">', '</h1>' ); ?>
 			<h2 class="subtitle"><?php echo esc_html( get_field( 'subtitle' ) ); ?></h2>
 		</div>
@@ -48,6 +48,10 @@ $term = get_the_category()[0];
 					$img = wp_get_attachment_image_src( $image_id, 'medium' );
 					
 					echo '<div class="post" style="background-image: url(' . esc_attr( $img[0] ) . ')">';
+					
+					gm_display_secondary_overlay( get_the_ID(), get_permalink() );
+					
+					/*
 					echo '<a href="' . get_the_permalink() . '"><div class="overlay">';
 					echo '<h3>' . get_the_title();
 					if ( get_the_title() && get_field( 'subtitle', get_the_ID() ) ) {
@@ -55,6 +59,8 @@ $term = get_the_category()[0];
 					}
 					echo '<span class="overlay-subtitle">' . get_field( 'subtitle', get_the_ID() ) . '</span></h3>';
 					echo '</div></a>';
+					*/
+					
 					echo '</div>';
 				endforeach;
 				?>
