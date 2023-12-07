@@ -82,11 +82,11 @@ get_header();
 <article id="<?php echo esc_attr( $article_id ); ?>" <?php post_class('loop-single loop-search loop-search-main main-column'); ?>>
 
 	<?php if ( $search_title ) { ?>
-		<div class="loop-header">
-			<h1 class="loop-title"><?php echo esc_html( $search_title ); ?></h1>
+		<div class="floating-header">
+			<h1 class="title"><?php echo esc_html( $search_title ); ?></h1>
 
 			<?php if ( $search_content ) { ?>
-				<h3 class="loop-subtitle"><?php echo do_shortcode( $search_content ); ?></h3>
+				<h3 class="subtitle"><?php echo do_shortcode( $search_content ); ?></h3>
 			<?php } ?>
 		</div>
 	<?php } ?>

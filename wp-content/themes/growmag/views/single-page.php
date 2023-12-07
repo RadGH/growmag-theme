@@ -1,13 +1,13 @@
 <div class="inside narrow">
 	<article <?php post_class( 'loop-single' ); ?>>
 
-		<div class="loop-header">
-			<?php the_title( '<h1 class="loop-title">', '</h1>' ); ?>
+		<div class="floating-header">
+			<?php the_title( '<h1 class="title">', '</h1>' ); ?>
 
 			<?php
 			// Singular pages may have a subtitle
 			if ( $subtitle = get_field( 'subtitle', get_the_ID() ) ) {
-				printf( '<h3 class="loop-subtitle">%s</h3>', $subtitle );
+				printf( '<h3 class="subtitle">%s</h3>', $subtitle );
 			}
 			?>
 		</div>
