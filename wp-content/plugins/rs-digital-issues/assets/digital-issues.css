@@ -1,4 +1,4 @@
-h2.digital-issues-title {
+h1.digital-issues-title {
 	font-family: gill-sans-nova, sans-serif;
 	font-weight: 300;
 	text-transform: uppercase;
@@ -10,7 +10,7 @@ h2.digital-issues-title {
 }
 
 @media ( min-width: 1400px ) {
-	h2.digital-issues-title {
+	h1.digital-issues-title {
 		font-size: 52px;
 	}
 }
