@@ -8,10 +8,10 @@ else if ( is_day() )      $message = "No posts have been published on this day."
 else if ( is_month() )    $message = "No posts have been published this month.";
 else if ( is_year() )     $message = "No posts have been published this year.";
 ?>
-<article <?php post_class('loop-single loop-404'); ?>>
+<article <?php post_class('loop-single loop-404 loop-404-post'); ?>>
 
-	<div class="loop-header">
-		<h1 class="loop-title">No posts found</h1>
+	<div class="floating-header">
+		<h1 class="title">No posts found</h1>
 	</div>
 
 	<div class="loop-body">

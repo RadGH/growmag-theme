@@ -1,5 +1,5 @@
 <div class="inside narrow">
-	<article <?php post_class( 'loop-single' ); ?>>
+	<article <?php post_class( 'loop-single loop-single-page' ); ?>>
 
 		<div class="floating-header">
 			<?php the_title( '<h1 class="title">', '</h1>' ); ?>

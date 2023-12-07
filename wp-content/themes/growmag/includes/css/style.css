@@ -1,5 +1,5 @@
 /*
-Version 1.3.3
+Version 1.3.4
 */
 
 /*
@@ -785,6 +785,10 @@ figure.wp-caption figcaption {
 }
 
 /* Major overlay / floating section */
+.loop-content {
+	padding-top: 1px;
+}
+
 .floating-header .title,
 .overlay .title {
 	margin: 0;
@@ -1656,6 +1660,10 @@ body.woocommerce .woocommerce-breadcrumb {
 	margin: -1em 0 2em;
 }
 
+body.woocommerce .floating-header .woocommerce-breadcrumb {
+	margin: 0;
+}
+
 body.woocommerce .woocommerce-breadcrumb a {
 	color: #777;
 	text-decoration: underline;
@@ -1740,6 +1748,11 @@ section.related.products {
 		line-height: 34px;
 		margin: 2px 0;
 	}
+}
+
+.loop-single-woocommerce > .inside > .product,
+.loop-single-woocommerce > .inside > .woocommerce-products-header {
+	padding-top: 20px;
 }
 
 /* leaving site popup plugin */

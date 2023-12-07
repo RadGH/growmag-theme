@@ -109,7 +109,7 @@ function ld_is_woocommerce_page() {
 // Display page markup before woocommerce
 function ld_woocommerce_before() {
 	?>
-	<article <?php post_class('loop-single'); ?>>
+	<article <?php post_class('loop-single loop-single-woocommerce'); ?>>
 		<div class="inside narrow">
 	<?php
 }
@@ -126,12 +126,33 @@ function ld_woocommerce_after() {
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
 add_action('woocommerce_after_main_content', 'ld_woocommerce_after', 10);
 
+/**
+ * Modify WooCommerce breadcrumbs to remove the duplicate /shop/ page
+ *
+ * @param array $crumbs
+ * @param WC_Breadcrumb $WC_Breadcrumb
+ *
+ * @return array
+ */
+function ld_woocommerce_breadcrumbs( $crumbs, $WC_Breadcrumb ) {
+	
+	if ( count($crumbs) >= 2 && $crumbs[0][1] == $crumbs[1][1] ) {
+		// Remove the second item
+		unset( $crumbs[1] );
+		
+		// Re-index from 0
+		$crumbs = array_values( $crumbs );
+	}
+
+	return $crumbs;
+}
+add_filter( 'woocommerce_get_breadcrumb', 'ld_woocommerce_breadcrumbs', 30, 2 );
 
 // Custom WooCommerce title & breadcrumbs
 function ld_woocommerce_custom_title() {
 	?>
-	<div class="loop-header">
-		<h1 class="loop-title"><?php woocommerce_page_title(); ?></h1>
+	<div class="floating-header">
+		<h1 class="title"><?php woocommerce_page_title(); ?></h1>
 
 		<?php
 		// Singular pages may have a subtitle

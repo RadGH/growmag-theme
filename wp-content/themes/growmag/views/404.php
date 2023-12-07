@@ -1,8 +1,8 @@
 <div class="inside narrow">
 <article <?php post_class('loop-single loop-404'); ?>>
 
-	<div class="loop-header">
-		<h1 class="loop-title">Not Found</h1>
+	<div class="floating-header">
+		<h1 class="title">Not Found</h1>
 	</div>
 
 	<div class="loop-body">
