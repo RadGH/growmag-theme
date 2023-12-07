@@ -94,7 +94,7 @@ if ( !empty($cover['button']['data'][0]['url']) ) {
 
 						<?php if ( $cover['title']['text'] ) { ?>
 							<div class="cover-title align-<?php echo $cover['title']['align'] ? esc_attr($cover['title']['align']) : 'left'; ?>">
-								<h2 <?php if ( $cover['title']['color'] ) echo 'style="color: '.esc_attr($cover['title']['color']).'"'; ?>><?php echo $cover['title']['text']; ?></h2>
+								<h1 <?php if ( $cover['title']['color'] ) echo 'style="color: '.esc_attr($cover['title']['color']).'"'; ?>><?php echo $cover['title']['text']; ?></h1>
 							</div>
 						<?php } ?>
 

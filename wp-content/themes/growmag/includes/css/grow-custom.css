@@ -205,6 +205,12 @@ p.gform_required_legend {
     font-size: 32px;
 }
 
+@media ( max-width: 767px ) {
+	.gm-call-to-action h2 {
+		font-size: 22px;
+	}
+}
+
 .gm-call-to-action p {
     margin-left: auto;
     margin-right: auto;

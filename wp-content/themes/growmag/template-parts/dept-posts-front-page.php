@@ -47,6 +47,14 @@ foreach ( $menu as $deptID ) {
 function output_posts_from_query( $get_posts_query, $deptLink, $deptName ) {
 	if ( ! $get_posts_query ) return;
 	
+	echo "\n<!-- \n" . 'output_posts_from_query' . "\n\n";
+	echo esc_html(print_r(array(
+		'count(get_posts_query)' => count($get_posts_query),
+		'deptLink' => $deptLink,
+		'deptName' => $deptName,
+	), true));
+	echo "\n\n-->";
+	
 	echo '<div class="layout-row home-dept-row clear inside">';
 	
 	$firstpost = true;
@@ -72,7 +80,7 @@ function output_posts_from_query( $get_posts_query, $deptLink, $deptName ) {
 				echo '<h2 class="category-header"><a href="' . $deptLink . '">' . $deptName . '</a></h2>';
 			echo '</div>';
 			
-			gm_display_secondary_overlay( $post->ID, get_permalink() );
+			gm_display_secondary_overlay( $post->ID, get_permalink( $post->ID ) );
 			
 			/*
 			echo '<div class="overlay">';
@@ -90,7 +98,7 @@ function output_posts_from_query( $get_posts_query, $deptLink, $deptName ) {
 			
 		} else {
 			
-			gm_display_secondary_overlay( $post->ID );
+			gm_display_secondary_overlay( $post->ID, get_permalink( $post->ID ), false );
 			
 			/*
 			echo '<a href="' . get_permalink( $post->ID ) . '">';

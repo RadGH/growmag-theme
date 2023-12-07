@@ -462,7 +462,7 @@ function gm_display_primary_overlay( $post_id = null, $button_url = null, $butto
 			echo $subtitle ? '<h4 class="subtitle">' . esc_html( $subtitle ) . '</h4>' : '';
 		}
 		
-		if ( $button_url !== null && $button_label !== null ) {
+		if ( $button_url !== null && $button_label ) {
 			echo '<div class="readmore button button-white">'. esc_html($button_label) .'</div>';
 		}
 		
