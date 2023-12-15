@@ -243,3 +243,32 @@ p.gform_required_legend {
 .gm-call-to-action > :last-child {
     margin-bottom: 0;
 }
+
+@media ( max-width: 540px ) {
+	body #menu-buttons {
+		position: relative;
+		z-index: 10000000;
+		transform: scale(0.8);
+		transform-origin: top right;
+		margin: 0 15px 0 30px;
+	}
+
+	body.mobile_nav_open .menu-button:not(.menu-button-mobile) {
+		visibility: hidden;
+	}
+
+	.home .cover-logo {
+		max-width: 50%;
+	}
+
+	.cover-header .cover-panel.align-left {
+		clear: none;
+		float: none;
+		margin: 50px 0 0;
+	}
+
+	.cover-title h1,
+	.cover-title h2 {
+		font-size: 40px;
+	}
+}
