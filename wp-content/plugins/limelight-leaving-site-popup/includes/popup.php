@@ -46,6 +46,7 @@ function ld_leavingsite_get_settings() {
 		$settings = array(
 			'title'               => get_field('lsp_title', 'options'),
 			'content'             => do_shortcode( get_field('lsp_content', 'options') ),
+			'background_id'       => ( (int) get_field( 'lsp_background_id', 'options' ) ) ?: false,
 			'close_text'          => get_field('lsp_close_text', 'options'),
 			'remember'            => get_field('lsp_remember', 'options'),
 			'remember_duration'   => get_field('lsp_remember_duration', 'options'),
@@ -103,6 +104,42 @@ function ld_leavingsite_modal_footer() {
 			<?php } ?>
 		</div>
 	</div>
+	
 	<?php
+	if ( $settings['background_id'] ) {
+		$image = wp_get_attachment_image_src( $settings['background_id'], 'full' );
+		$image_url = $image[0];
+		$width = $image[1];
+		$height = $image[2];
+		$ratio = $width / $height;
+		
+		if ( $image && $width && $height ) {
+			?>
+			<style data-file="<?php echo esc_attr(str_replace(ABSPATH, '/', __FILE__)); ?>">
+				#leavingsite-popup .modal {
+					background-image: url(<?php echo $image_url; ?>);
+					background-size: cover;
+					background-position: center;
+					width: <?php echo $width; ?>px;
+					height: <?php echo $height; ?>px;
+				}
+	
+				@supports (aspect-ratio: 1) {
+					#leavingsite-popup .modal {
+						height: auto;
+						aspect-ratio: <?php echo $ratio; ?>;
+					}
+					
+					@media (max-width: 720px) {
+						#leavingsite-popup .modal {
+							max-width: calc( 100% - 20px );
+						}
+					}
+				}
+			</style>
+			<?php
+		}
+		// End of background image
+	}
 }
 add_action( 'wp_footer', 'ld_leavingsite_modal_footer', 3 );
