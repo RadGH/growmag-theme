@@ -1,0 +1,130 @@
+/* Download list - General styles */
+.rs-downloads-list-block {
+	--item-gap: 3em;
+	--column-gap: 20px;
+	--grid-padding: 10px; /* On grid view with images, the area with a white background */
+}
+
+.rs-downloads-list {
+
+}
+
+.rs-download-item {
+
+}
+
+.rs-download-item .item--image {
+}
+
+.rs-download-item .item--image img {
+	display: block;
+	width: auto;
+	height: auto;
+	max-width: 100%;
+}
+
+.rs-download-item .item--details {
+}
+
+.rs-download-item .item--title {
+	margin-top: 0;
+}
+
+.rs-download-item .item--content {
+}
+
+.rs-download-item .item--button {
+}
+
+@media not ( min-width: 768px ) {
+	.rs-downloads-list.show-images .item--image {
+		margin-bottom: var( --column-gap, 20px );
+	}
+}
+
+/* List view */
+@supports ( display: grid ) {
+	.rs-downloads-list.layout-list .rs-download-item {
+		margin-bottom: var( --item-gap, 3em );
+	}
+
+	.rs-downloads-list.layout-list .rs-download-item:last-child {
+		margin-bottom: 0;
+	}
+
+	@media ( min-width: 768px ) {
+		.rs-downloads-list.layout-list.show-images .rs-download-item {
+			display: grid;
+			grid-template-columns: 240px auto;
+			gap: 0 var( --column-gap, 20px );
+		}
+	}
+}
+
+/* Grid view */
+@supports ( display: grid ) {
+
+	.rs-downloads-list.layout-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var( --item-gap, 3em ) var( --column-gap, 20px );
+	}
+
+	@media ( min-width: 600px ) {
+		.rs-downloads-list.layout-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		.rs-downloads-list-block.layout-grid.has-background {
+			padding: var( --column-gap, 20px );
+		}
+
+		.rs-downloads-list-block.layout-grid.has-background .item--details {
+			padding: var( --grid-padding, 10px );
+			background: #fff;
+		}
+
+		.rs-downloads-list-block.layout-grid .rs-download-item.has-image .item--image {
+			margin-bottom: var( --column-gap, 20px );
+		}
+	}
+
+	@media ( min-width: 800px ) {
+		.rs-downloads-list.layout-grid {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+	}
+
+}
+
+/* Fallback view */
+@supports not ( display: grid ) {
+	.rs-downloads-list .rs-download-item {
+		margin-bottom: var( --item-gap, 3em );
+	}
+
+	.rs-downloads-list .rs-download-item:last-child {
+		margin-bottom: 0;
+	}
+
+	@media ( min-width: 768px ) {
+		.rs-downloads-list.show-images .item--image {
+			float: left;
+			width: 240px;
+			min-height: 1em;
+			margin-right: var( --column-gap, 20px );
+		}
+
+		.rs-downloads-list.show-images .item--details {
+			overflow: hidden;
+		}
+
+		.rs-downloads-list.show-images .rs-download-item::after {
+			content: '';
+			display: table;
+			clear: both;
+		}
+	}
+}
+
+/* Download list - Grid view */

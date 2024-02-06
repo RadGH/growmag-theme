@@ -1,0 +1,14 @@
+{
+	"name": "rs-downloads/download-list",
+	"title": "Download List",
+	"description": "Displays a list of available downloads.",
+	"style": "rs-download-block-styles",
+	"editorScript": "rs-download-block-editor",
+	"category": "embed",
+	"icon": "list-view",
+	"keywords": ["download", "downloads", "list"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "block.php"
+	}
+}
