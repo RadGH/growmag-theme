@@ -105,41 +105,62 @@ function ld_leavingsite_modal_footer() {
 		</div>
 	</div>
 	
-	<?php
-	if ( $settings['background_id'] ) {
-		$image = wp_get_attachment_image_src( $settings['background_id'], 'full' );
-		$image_url = $image[0];
-		$width = $image[1];
-		$height = $image[2];
-		$ratio = $width / $height;
+	<style data-file="<?php echo esc_attr(str_replace(ABSPATH, '/', __FILE__)); ?>">
 		
-		if ( $image && $width && $height ) {
-			?>
-			<style data-file="<?php echo esc_attr(str_replace(ABSPATH, '/', __FILE__)); ?>">
-				#leavingsite-popup .modal {
-					background-image: url(<?php echo $image_url; ?>);
-					background-size: cover;
-					background-position: center;
-					width: <?php echo $width; ?>px;
-					height: <?php echo $height; ?>px;
-				}
-	
-				@supports (aspect-ratio: 1) {
-					#leavingsite-popup .modal {
-						height: auto;
-						aspect-ratio: <?php echo $ratio; ?>;
-					}
-					
-					@media (max-width: 720px) {
-						#leavingsite-popup .modal {
-							max-width: calc( 100% - 20px );
-						}
-					}
-				}
-			</style>
-			<?php
+		<?php
+		if ( $settings['background_id'] ) {
+			$image = wp_get_attachment_image_src( $settings['background_id'], 'full' );
+		}else{
+			$image = false;
 		}
-		// End of background image
-	}
+		
+		if ( $image ) {
+			
+			$image_url = $image[0];
+			$width = $image[1];
+			$height = $image[2];
+			$ratio = $width / $height;
+			?>
+			#leavingsite-popup .modal {
+				background-image: url(<?php echo $image_url; ?>);
+				background-size: cover;
+				background-position: center;
+				width: <?php echo $width; ?>px;
+				height: <?php echo $height; ?>px;
+			}
+
+			@supports (aspect-ratio: 1) {
+				#leavingsite-popup .modal {
+					height: auto;
+					aspect-ratio: <?php echo $ratio; ?>;
+				}
+				
+				@media (max-width: 720px) {
+					#leavingsite-popup .modal {
+						max-width: calc( 100% - 20px );
+					}
+				}
+			}
+			<?php
+			
+		}else{
+			
+			// No background image
+			?>
+			#leavingsite-popup .modal {
+				background: none !important;
+				width: auto !important;
+				height: auto !important;
+				aspect-ratio: auto !important;
+				max-width: 100% !important;
+				max-height: 100% !important;
+			}
+			<?php
+			
+		}
+		?>
+		
+	</style>
+	<?php
 }
 add_action( 'wp_footer', 'ld_leavingsite_modal_footer', 3 );
