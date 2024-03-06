@@ -493,6 +493,9 @@ class RS_Downloads_Gravity_Forms {
 		if ( isset($new_entry['source_url']) ) unset( $new_entry['source_url'] );
 		if ( isset($new_entry['created_by']) ) unset( $new_entry['created_by'] );
 		
+		// Set the "repeat_entry" hidden field value to 1.
+		$new_entry[10] = 1;
+		
 		// Create the new entry
 		$new_entry_id = GFAPI::add_entry( $new_entry );
 		
