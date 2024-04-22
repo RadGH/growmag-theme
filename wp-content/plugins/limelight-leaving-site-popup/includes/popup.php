@@ -34,6 +34,22 @@ function ld_leavingsite_remember_closed_popup() {
 	if ( isset($_REQUEST['lsp_reset_cookie']) ) {
 		setcookie( 'lsp-closed', '', time()-3600, '/' );
 		unset($_COOKIE['lsp-closed']);
+		
+		$url = remove_query_arg('lsp_reset_cookie');
+		
+		ob_start();
+		?>
+		<p><strong>Leaving Site Popup:</strong> Cookie has been reset.</p>
+		<p>The page will reload shortly. If not, <a href="<?php echo esc_attr($url); ?>">click here</a></p>
+		<script>
+			setTimeout(function() {
+				localStorage.removeItem('leavingsite-popup-closed');
+				window.location.href = <?php echo json_encode($url); ?>;
+			}, 2000);
+		</script>
+		<?php
+		$html = ob_get_clean();
+		wp_die( $html, 'Leaving Site Popup', array('response' => 200) );
 		exit;
 	}
 }
@@ -48,6 +64,7 @@ function ld_leavingsite_get_settings() {
 			'content'             => do_shortcode( get_field('lsp_content', 'options') ),
 			'background_id'       => ( (int) get_field( 'lsp_background_id', 'options' ) ) ?: false,
 			'close_text'          => get_field('lsp_close_text', 'options'),
+			'close_color'         => get_field('lsp_close_button_color', 'options'),
 			'remember'            => get_field('lsp_remember', 'options'),
 			'remember_duration'   => get_field('lsp_remember_duration', 'options'),
 			'ask_to_stay'         => get_field('lsp_ask_to_stay', 'options'),
@@ -81,9 +98,12 @@ function ld_leavingsite_modal_footer() {
 
 	$settings = ld_leavingsite_get_settings();
 	
+	$classes = array();
+	$classes[] = 'lsp-hidden';
+	$classes[] = $settings['close_color'] ? 'lsp-close-' . $settings['close_color'] : 'lsp-close-dark';
+	
 	?>
-	<div id="leavingsite-popup">
-		<div class="underlay"></div>
+	<div id="leavingsite-popup" class="<?php echo esc_attr(implode(' ', $classes)); ?>" hidden>
 		<div class="modal">
 			<?php if ( $settings['title'] ) { ?>
 			<div class="modal-title">
@@ -99,7 +119,7 @@ function ld_leavingsite_modal_footer() {
 
 			<?php if ( $settings['close_text'] ) { ?>
 			<div class="modal-footer">
-				<p><a href="#close" class="modal-close"><?php echo $settings['close_text'] ? $settings['close_text'] : 'No thanks'; ?></a></p>
+				<p><a href="#close" class="modal-close" title="Dismiss this popup"><?php echo $settings['close_text'] ? $settings['close_text'] : 'No thanks'; ?></a></p>
 			</div>
 			<?php } ?>
 		</div>

@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Leaving Site Popup
-Version: 1.1.0
+Version: 1.2.9
 Description: Displays a newsletter promotional popup when a user attempts to leave the page.
 Author: Radley Sustaire
 Author URI: mailto:radleygh@gmail.com
@@ -11,7 +11,7 @@ if( !defined( 'ABSPATH' ) ) exit;
 
 define( 'LDleavingsite_URL', untrailingslashit(plugin_dir_url( __FILE__ )) );
 define( 'LDleavingsite_PATH', dirname(__FILE__) );
-define( 'LDleavingsite_VERSION', '1.1.0' );
+define( 'LDleavingsite_VERSION', '1.2.9' );
 
 function ld_leavingsite_init_plugin() {
 	if ( !function_exists('acf') ) {

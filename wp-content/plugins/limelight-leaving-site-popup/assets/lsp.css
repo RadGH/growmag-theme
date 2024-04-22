@@ -1,25 +1,23 @@
 /* Dialog */
 #leavingsite-popup {
-	font-family: 'Open Sans', sans-serif;
 	display: none;
+	font-family: 'Open Sans', sans-serif;
 	position: fixed;
 	z-index: 15000000;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
+
+	background-color: rgba(0,0,0,0.0);
+	transition: background-color 0.5s linear;
 }
-#leavingsite-popup .underlay {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
+
+#leavingsite-popup.lsp-visible {
+	display: block; /* changes to grid if supported, see below */
 	background-color: rgba(0,0,0,0.5);
-	cursor: pointer;
-	-webkit-animation: fadein 0.5s;
-	animation: fadein 0.5s;
 }
+
 #leavingsite-popup .modal {
 	width: 600px;
 	height: 490px;
@@ -53,6 +51,8 @@
 	padding: 20px 35px;
 	font-size: 0.9em;
 }
+#leavingsite-popup .modal-body > :first-child { margin-top: 0; }
+#leavingsite-popup .modal-body > :last-child { margin-bottom: 0; }
 #leavingsite-popup form {
 	text-align: center;
 }
@@ -65,13 +65,43 @@
 	font-size: 0.9em;
 }
 #leavingsite-popup .modal-footer {
+	position: absolute;
+	top: 0;
+	right: 0;
+
 	text-align: center;
 }
+
+#leavingsite-popup .modal-footer .modal-close {
+	display: block;
+	padding: 10px 15px;
+	text-decoration: none;
+	font-size: 28px;
+
+	color: rgba(0,0,0,0.8);
+	background: rgba(0,0,0,0.0);
+	transition: all 0.15s linear;
+}
+
+#leavingsite-popup .modal-footer .modal-close:hover {
+	color: rgba(0,0,0,1.0);
+	background: rgba(0,0,0,0.2);
+}
+
+#leavingsite-popup.lsp-close-light .modal-footer .modal-close {
+	color: rgba(255,255,255,0.8);
+	background: rgba(255,255,255,0.0);
+}
+
+#leavingsite-popup.lsp-close-light .modal-footer .modal-close:hover {
+	color: rgba(255,255,255,1.0);
+	background: rgba(255,255,255,0.2);
+}
+
 #leavingsite-popup .modal-footer a {
 	cursor: pointer;
 	text-decoration: underline;
 	border-bottom: none;
-	color: #909090;
 }
 
 .modal .newsletter-fname-field,
@@ -212,4 +242,42 @@
 		transform: scale(1);
 		opacity: 1;
 	}
+}
+
+/* Updated to use flex layout and center the popup 4/3/2024 */
+@supports ( display: grid ) {
+	#leavingsite-popup.lsp-visible {
+		display: flex !important;
+		flex-direction: column;
+		overflow: auto;
+	}
+
+	#leavingsite-popup.lsp-visible .modal {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+/* Max size of popup and contained image */
+#leavingsite-popup .modal a:has(img) img {
+	max-width: calc(100vw - 40px) !important;
+	max-height: calc(100vh - 40px) !important;
+}
+
+#leavingsite-popup .modal a:has(img) {
+	display: block;
+	width: fit-content;
+	margin: 0 auto;
+}
+
+#leavingsite-popup .modal a:has(img) img {
+	display: block;
+	object-fit: contain;
+	max-width: 100%;
+	max-height: 100%;
+	width: auto;
+	height: auto;
 }

@@ -44,10 +44,28 @@ jQuery(function() {
 	}
 	*/
 
-	var close_ouibounce = function() {
-		remember_popup_displayed();
+	var toggle_visibility = function( visible ) {
+		$popup
+			.toggleClass('lsp-visible', visible)
+			.toggleClass('lsp-hidden', ! visible)
+			.attr('hidden', ! visible)
+			.css('display', visible ? '' : 'none');
+	};
 
-		$popup.css('display', 'none');
+	var show_popup = function() {
+		console.log('LSP Visible');
+
+		toggle_visibility( true );
+	};
+
+	var close_ouibounce = function() {
+		console.log('LSP Hidden');
+
+		// Hide popup
+		toggle_visibility( false );
+
+		// Remember popup was displayed to not show again for some time
+		remember_popup_displayed();
 
 		// Remember that it was closed, serverside
 		jQuery.ajax({
@@ -79,18 +97,22 @@ jQuery(function() {
 					return;
 				}
 
-				// Remember that this popup has been displayed in this user's browser
+				// Remember popup was displayed to not show again for some time
 				remember_popup_displayed();
 
 				// Close when clicking on the background, or a link with the class "modal-close"
-				$popup.on('click', '.underlay, .modal-footer a, .modal-close', function() {
+				$popup.on('click', '.modal-footer a, .modal-close', function() {
 					close_ouibounce();
 					return false;
 				});
 
+				// Close when form submitted
 				$popup.on('submit', 'form', function() {
 					close_ouibounce();
 				});
+
+				// Show the popup
+				show_popup();
 
 				// Don't show alert on tab close anymore
 				jQuery(window).unbind('beforeunload', leave_native_alert);
