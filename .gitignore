@@ -14,8 +14,7 @@
 
 /wp-content/themes/index.php
 
-# This MU Plugin contains private google maps key and should not be in git
-/wp-content/mu-plugins/rs_gmaps_api_key.php
+/wp-content/mu-plugins/
 
 # -------------------------------- #
 # Allow specific files and folders
