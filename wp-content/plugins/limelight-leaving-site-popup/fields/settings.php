@@ -1,40 +1,75 @@
 <?php
-if( function_exists('acf_add_local_field_group') ):
 
-	acf_add_local_field_group(array (
+add_action( 'acf/include_fields', function() {
+	if ( ! function_exists( 'acf_add_local_field_group' ) ) {
+		return;
+	}
+	
+	acf_add_local_field_group( array(
 		'key' => 'group_571e6f814992a',
-		'title' => 'Settings',
-		'fields' => array (
-			array (
-				'key' => 'field_571e6f986b9c1',
-				'label' => 'Popup Title',
-				'name' => 'lsp_title',
-				'type' => 'text',
+		'title' => 'Leaving Site Popup Settings',
+		'fields' => array(
+			array(
+				'key' => 'field_660dbe5fd7090',
+				'label' => 'Testing Instructions',
+				'name' => '',
+				'aria-label' => '',
+				'type' => 'message',
 				'instructions' => '',
 				'required' => 0,
 				'conditional_logic' => 0,
-				'wrapper' => array (
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'message' => 'To reset the cookie and allow the popup to be displayed again, click the following link:
+
+<pre class="code"><a href="https://growmag.com/?lsp_reset_cookie" target="_blank">https://growmag.com/?lsp_reset_cookie</a></pre>',
+				'new_lines' => 'wpautop',
+				'esc_html' => 0,
+			),
+			array(
+				'key' => 'field_571e6f986b9c1',
+				'label' => 'Popup Title (Disabled)',
+				'name' => 'lsp_title',
+				'aria-label' => '',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => array(
+					array(
+						array(
+							'field' => 'field_571e6fa96b9c2',
+							'operator' => '!=empty',
+						),
+						array(
+							'field' => 'field_571e6fa96b9c2',
+							'operator' => '==empty',
+						),
+					),
+				),
+				'wrapper' => array(
 					'width' => '',
 					'class' => '',
 					'id' => '',
 				),
 				'default_value' => '',
+				'maxlength' => '',
 				'placeholder' => '',
 				'prepend' => '',
 				'append' => '',
-				'maxlength' => '',
-				'readonly' => 0,
-				'disabled' => 0,
 			),
-			array (
+			array(
 				'key' => 'field_571e6fa96b9c2',
 				'label' => 'Popup Content',
 				'name' => 'lsp_content',
+				'aria-label' => '',
 				'type' => 'wysiwyg',
 				'instructions' => '',
 				'required' => 0,
 				'conditional_logic' => 0,
-				'wrapper' => array (
+				'wrapper' => array(
 					'width' => '',
 					'class' => '',
 					'id' => '',
@@ -43,16 +78,43 @@ if( function_exists('acf_add_local_field_group') ):
 				'tabs' => 'all',
 				'toolbar' => 'full',
 				'media_upload' => 1,
+				'delay' => 0,
 			),
-			array (
+			array(
+				'key' => 'field_65b0316c9bb8e',
+				'label' => 'Background Image',
+				'name' => 'lsp_background_id',
+				'aria-label' => '',
+				'type' => 'image',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'return_format' => 'id',
+				'library' => 'all',
+				'min_width' => '',
+				'min_height' => '',
+				'min_size' => '',
+				'max_width' => '',
+				'max_height' => '',
+				'max_size' => '',
+				'mime_types' => '',
+				'preview_size' => 'medium',
+			),
+			array(
 				'key' => 'field_571e7391b6792',
 				'label' => 'Close button text',
 				'name' => 'lsp_close_text',
+				'aria-label' => '',
 				'type' => 'text',
 				'instructions' => '',
 				'required' => 0,
 				'conditional_logic' => 0,
-				'wrapper' => array (
+				'wrapper' => array(
 					'width' => '',
 					'class' => '',
 					'id' => '',
@@ -65,39 +127,69 @@ if( function_exists('acf_add_local_field_group') ):
 				'readonly' => 0,
 				'disabled' => 0,
 			),
-			array (
+			array(
+				'key' => 'field_660dbeb87384b',
+				'label' => 'Close button color',
+				'name' => 'lsp_close_button_color',
+				'aria-label' => '',
+				'type' => 'radio',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'choices' => array(
+					'dark' => 'Dark',
+					'light' => 'Light',
+				),
+				'default_value' => '',
+				'return_format' => 'value',
+				'allow_null' => 0,
+				'other_choice' => 0,
+				'layout' => 'horizontal',
+				'save_other_choice' => 0,
+			),
+			array(
 				'key' => 'field_571e6fdc6b9c4',
 				'label' => 'Remember',
 				'name' => 'lsp_remember',
+				'aria-label' => '',
 				'type' => 'true_false',
 				'instructions' => '',
 				'required' => 0,
 				'conditional_logic' => 0,
-				'wrapper' => array (
+				'wrapper' => array(
 					'width' => '',
 					'class' => '',
 					'id' => '',
 				),
 				'message' => 'Remember visitors that have closed the popup, and do not re-show',
 				'default_value' => 1,
+				'ui' => 0,
+				'ui_on_text' => '',
+				'ui_off_text' => '',
 			),
-			array (
+			array(
 				'key' => 'field_571e703f6b9c6',
 				'label' => 'Remember Duration',
 				'name' => 'lsp_remember_duration',
+				'aria-label' => '',
 				'type' => 'number',
 				'instructions' => '',
 				'required' => 0,
-				'conditional_logic' => array (
-					array (
-						array (
+				'conditional_logic' => array(
+					array(
+						array(
 							'field' => 'field_571e6fdc6b9c4',
 							'operator' => '==',
 							'value' => '1',
 						),
 					),
 				),
-				'wrapper' => array (
+				'wrapper' => array(
 					'width' => '',
 					'class' => '',
 					'id' => '',
@@ -112,39 +204,44 @@ if( function_exists('acf_add_local_field_group') ):
 				'readonly' => 0,
 				'disabled' => 0,
 			),
-			array (
+			array(
 				'key' => 'field_571e6fb86b9c3',
 				'label' => 'Closing Tab',
 				'name' => 'lsp_ask_to_stay',
+				'aria-label' => '',
 				'type' => 'true_false',
 				'instructions' => '',
 				'required' => 0,
 				'conditional_logic' => 0,
-				'wrapper' => array (
+				'wrapper' => array(
 					'width' => '',
 					'class' => '',
 					'id' => '',
 				),
 				'message' => 'Ask visitors to stay when closing tab (Not recommended)',
 				'default_value' => 0,
+				'ui' => 0,
+				'ui_on_text' => '',
+				'ui_off_text' => '',
 			),
-			array (
+			array(
 				'key' => 'field_571e70836b9c7',
 				'label' => 'Closing Tab Message',
 				'name' => 'lsp_ask_to_stay_message',
+				'aria-label' => '',
 				'type' => 'text',
 				'instructions' => '',
 				'required' => 0,
-				'conditional_logic' => array (
-					array (
-						array (
+				'conditional_logic' => array(
+					array(
+						array(
 							'field' => 'field_571e6fb86b9c3',
 							'operator' => '==',
 							'value' => '1',
 						),
 					),
 				),
-				'wrapper' => array (
+				'wrapper' => array(
 					'width' => '',
 					'class' => '',
 					'id' => '',
@@ -157,10 +254,164 @@ if( function_exists('acf_add_local_field_group') ):
 				'readonly' => 0,
 				'disabled' => 0,
 			),
+			array(
+				'key' => 'field_660db350d72ee',
+				'label' => 'Previous Settings',
+				'name' => 'previous_settings',
+				'aria-label' => '',
+				'type' => 'group',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'layout' => 'block',
+				'sub_fields' => array(
+					array(
+						'key' => 'field_660db367d72ef',
+						'label' => 'NOT USED',
+						'name' => '',
+						'aria-label' => '',
+						'type' => 'message',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'message' => 'These fields are for reference only.',
+						'new_lines' => 'wpautop',
+						'esc_html' => 0,
+					),
+					array(
+						'key' => 'field_660db375d72f1',
+						'label' => 'Popup Content (Not Used)',
+						'name' => 'lsp_content',
+						'aria-label' => '',
+						'type' => 'wysiwyg',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'default_value' => '',
+						'tabs' => 'all',
+						'toolbar' => 'full',
+						'media_upload' => 1,
+						'delay' => 0,
+					),
+					array(
+						'key' => 'field_660db37dd72f2',
+						'label' => 'Background Image (Not Used)',
+						'name' => 'lsp_background_id_copy',
+						'aria-label' => '',
+						'type' => 'image',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'return_format' => 'id',
+						'library' => 'all',
+						'min_width' => '',
+						'min_height' => '',
+						'min_size' => '',
+						'max_width' => '',
+						'max_height' => '',
+						'max_size' => '',
+						'mime_types' => '',
+						'preview_size' => 'medium',
+					),
+					array(
+						'key' => 'field_660db381d72f3',
+						'label' => 'Close button text (Not Used)',
+						'name' => 'lsp_close_text_copy',
+						'aria-label' => '',
+						'type' => 'text',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'default_value' => '',
+						'maxlength' => '',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+					),
+					array(
+						'key' => 'field_660dbedcab34f',
+						'label' => 'Close button color (Not Used)',
+						'name' => 'lsp_close_button_color_copy',
+						'aria-label' => '',
+						'type' => 'radio',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'choices' => array(
+							'dark' => 'Dark',
+							'light' => 'Light',
+						),
+						'default_value' => '',
+						'return_format' => 'value',
+						'allow_null' => 0,
+						'other_choice' => 0,
+						'layout' => 'horizontal',
+						'save_other_choice' => 0,
+					),
+					array(
+						'key' => 'field_660db390d72f5',
+						'label' => 'Closing Tab Message (Not Used)',
+						'name' => 'lsp_ask_to_stay_message_copy',
+						'aria-label' => '',
+						'type' => 'text',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => array(
+							array(
+								array(
+									'field' => 'field_571e6fb86b9c3',
+									'operator' => '==',
+									'value' => '1',
+								),
+							),
+						),
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'default_value' => '',
+						'maxlength' => '',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+					),
+				),
+			),
 		),
-		'location' => array (
-			array (
-				array (
+		'location' => array(
+			array(
+				array(
 					'param' => 'options_page',
 					'operator' => '==',
 					'value' => 'leaving-site-popup',
@@ -173,8 +424,8 @@ if( function_exists('acf_add_local_field_group') ):
 		'label_placement' => 'left',
 		'instruction_placement' => 'field',
 		'hide_on_screen' => '',
-		'active' => 1,
+		'active' => true,
 		'description' => '',
-	));
-
-endif;
+		'show_in_rest' => 0,
+	) );
+} );
