@@ -55,10 +55,6 @@ h2.digital-issues-title {
 	.digital-issues-list {
 		margin: 20px;
 	}
-
-	.digital-issues-list {
-		grid-template-columns: repeat(auto-fill, minmax(154px, 1fr));
-	}
 }
 
 /* Mailchimp popup */
