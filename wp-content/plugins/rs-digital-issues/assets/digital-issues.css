@@ -68,7 +68,7 @@ h2.digital-issues-title {
 	left: 0;
 	right: 0;
 	height: 0;
-	z-index: 1000;
+	z-index: 10000010; /* above main menu controls */
 	background: rgba(0,0,0,0.5);
 	opacity: 0;
 	overflow: hidden;
