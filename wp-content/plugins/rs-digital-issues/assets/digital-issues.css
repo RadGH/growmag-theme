@@ -1,4 +1,4 @@
-h1.digital-issues-title {
+h2.digital-issues-title {
 	font-family: gill-sans-nova, sans-serif;
 	font-weight: 300;
 	text-transform: uppercase;
@@ -10,7 +10,7 @@ h1.digital-issues-title {
 }
 
 @media ( min-width: 1400px ) {
-	h1.digital-issues-title {
+	h2.digital-issues-title {
 		font-size: 52px;
 	}
 }
@@ -60,3 +60,61 @@ h1.digital-issues-title {
 		grid-template-columns: repeat(auto-fill, minmax(154px, 1fr));
 	}
 }
+
+/* Mailchimp popup */
+.rs-di-popup-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 0;
+	z-index: 1000;
+	background: rgba(0,0,0,0.5);
+	opacity: 0;
+	overflow: hidden;
+
+	transition: opacity 0.25s linear, background 0.25s linear;
+}
+
+.rs-di-popup-wrapper.visible {
+	bottom: 0;
+	height: auto;
+	opacity: 1;
+	overflow: auto;
+
+	display: grid;
+	place-content: center;
+}
+
+body:has(.rs-di-popup-wrapper.visible) {
+	overflow: hidden;
+}
+
+.rs-di-popup-wrapper .popup-content {
+	background: #fff;
+	width: fit-content;
+	margin: auto;
+	padding: clamp(10px, 4vw, 40px);
+}
+
+.rs-di-popup-wrapper .popup-header {
+	display: inline-block;
+	float: right;
+	font-size: 30px;
+}
+
+.rs-di-popup-wrapper .popup-inner--content > :first-child {
+	margin-top: 0;
+}
+
+.rs-di-popup-wrapper .popup-inner--disclaimer > :last-child {
+	margin-bottom: 0;
+}
+
+.rs-di-popup-wrapper .popup-inner--error-message {
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid #c31f1f;
+	color: #c31f1f;
+}
+/* End: Mailchimp popup */

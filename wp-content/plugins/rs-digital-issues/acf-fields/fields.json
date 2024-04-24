@@ -1,0 +1,401 @@
+[
+	{
+		"key": "group_62b60160955f6",
+		"title": "Digital Issue Details",
+		"fields": [
+			{
+				"key": "field_62b601754e4a0",
+				"label": "Cover Image",
+				"name": "cover_image",
+				"aria-label": "",
+				"type": "image",
+				"instructions": "",
+				"required": 0,
+				"conditional_logic": 0,
+				"wrapper": {
+					"width": "",
+					"class": "",
+					"id": ""
+				},
+				"return_format": "id",
+				"preview_size": "di-cover-thumbnail",
+				"library": "all",
+				"min_width": "",
+				"min_height": "",
+				"min_size": "",
+				"max_width": "",
+				"max_height": "",
+				"max_size": "",
+				"mime_types": ""
+			},
+			{
+				"key": "field_62b6049ed93e1",
+				"label": "Magazine URL",
+				"name": "magazine_url",
+				"aria-label": "",
+				"type": "text",
+				"instructions": "",
+				"required": 0,
+				"conditional_logic": 0,
+				"wrapper": {
+					"width": "",
+					"class": "",
+					"id": ""
+				},
+				"default_value": "",
+				"placeholder": "",
+				"prepend": "",
+				"append": "",
+				"maxlength": ""
+			},
+			{
+				"key": "field_636e8a882fd74",
+				"label": "Volume #",
+				"name": "volume_number",
+				"aria-label": "",
+				"type": "text",
+				"instructions": "",
+				"required": 0,
+				"conditional_logic": 0,
+				"wrapper": {
+					"width": "50",
+					"class": "",
+					"id": ""
+				},
+				"default_value": "",
+				"maxlength": "",
+				"placeholder": "",
+				"prepend": "",
+				"append": ""
+			},
+			{
+				"key": "field_636e8ab32fd75",
+				"label": "Issue #",
+				"name": "issue_number",
+				"aria-label": "",
+				"type": "text",
+				"instructions": "",
+				"required": 0,
+				"conditional_logic": 0,
+				"wrapper": {
+					"width": "50",
+					"class": "",
+					"id": ""
+				},
+				"default_value": "",
+				"maxlength": "",
+				"placeholder": "",
+				"prepend": "",
+				"append": ""
+			}
+		],
+		"location": [
+			[
+				{
+					"param": "post_type",
+					"operator": "==",
+					"value": "digital-issue"
+				}
+			]
+		],
+		"menu_order": 0,
+		"position": "normal",
+		"style": "default",
+		"label_placement": "left",
+		"instruction_placement": "label",
+		"hide_on_screen": "",
+		"active": true,
+		"description": "",
+		"show_in_rest": 0
+	},
+	{
+		"key": "group_62b60cfb50a24",
+		"title": "Digital Issue Settings",
+		"fields": [
+			{
+				"key": "field_62b60d0d615d5",
+				"label": "Archive Cover Photo",
+				"name": "archive_cover",
+				"aria-label": "",
+				"type": "group",
+				"instructions": "",
+				"required": 0,
+				"conditional_logic": 0,
+				"wrapper": {
+					"width": "",
+					"class": "",
+					"id": ""
+				},
+				"layout": "block",
+				"sub_fields": [
+					{
+						"key": "field_62b60d4c615d7",
+						"label": "Logo",
+						"name": "logo",
+						"aria-label": "",
+						"type": "image",
+						"instructions": "",
+						"required": 0,
+						"conditional_logic": 0,
+						"wrapper": {
+							"width": "",
+							"class": "",
+							"id": ""
+						},
+						"return_format": "array",
+						"preview_size": "medium",
+						"library": "all",
+						"min_width": "",
+						"min_height": "",
+						"min_size": "",
+						"max_width": "",
+						"max_height": "",
+						"max_size": "",
+						"mime_types": ""
+					},
+					{
+						"key": "field_62b60d48615d6",
+						"label": "Image",
+						"name": "image",
+						"aria-label": "",
+						"type": "image",
+						"instructions": "",
+						"required": 0,
+						"conditional_logic": 0,
+						"wrapper": {
+							"width": "",
+							"class": "",
+							"id": ""
+						},
+						"return_format": "id",
+						"preview_size": "medium",
+						"library": "all",
+						"min_width": "",
+						"min_height": "",
+						"min_size": "",
+						"max_width": "",
+						"max_height": "",
+						"max_size": "",
+						"mime_types": ""
+					},
+					{
+						"key": "field_62b60d5c615d8",
+						"label": "Icon Color",
+						"name": "iconcolor",
+						"aria-label": "",
+						"type": "button_group",
+						"instructions": "",
+						"required": 0,
+						"conditional_logic": 0,
+						"wrapper": {
+							"width": "",
+							"class": "",
+							"id": ""
+						},
+						"choices": {
+							"light": "Light icons",
+							"dark": "Dark icons"
+						},
+						"allow_null": 0,
+						"default_value": "",
+						"layout": "horizontal",
+						"return_format": "value"
+					}
+				]
+			},
+			{
+				"key": "field_65eb572862764",
+				"label": "Mailchimp",
+				"name": "mailchimp",
+				"aria-label": "",
+				"type": "group",
+				"instructions": "",
+				"required": 0,
+				"conditional_logic": 0,
+				"wrapper": {
+					"width": "",
+					"class": "",
+					"id": ""
+				},
+				"layout": "block",
+				"sub_fields": [
+					{
+						"key": "field_65eb573962765",
+						"label": "Required",
+						"name": "required",
+						"aria-label": "",
+						"type": "true_false",
+						"instructions": "",
+						"required": 0,
+						"conditional_logic": 0,
+						"wrapper": {
+							"width": "",
+							"class": "",
+							"id": ""
+						},
+						"message": "Require users to be Mailchimp subscribers before accessing digital issues",
+						"default_value": 0,
+						"ui": 0,
+						"ui_on_text": "",
+						"ui_off_text": ""
+					},
+					{
+						"key": "field_65eb576062766",
+						"label": "API Key",
+						"name": "api_key",
+						"aria-label": "",
+						"type": "text",
+						"instructions": "",
+						"required": 0,
+						"conditional_logic": 0,
+						"wrapper": {
+							"width": "",
+							"class": "",
+							"id": ""
+						},
+						"default_value": "",
+						"maxlength": "",
+						"placeholder": "",
+						"prepend": "",
+						"append": ""
+					},
+					{
+						"key": "field_65eb576562767",
+						"label": "Primary List ID",
+						"name": "list_id",
+						"aria-label": "",
+						"type": "text",
+						"instructions": "New subscribers will be added to this list. Existing subscribers will be checked to see if they are on this list, and any secondary lists.",
+						"required": 0,
+						"conditional_logic": 0,
+						"wrapper": {
+							"width": "",
+							"class": "",
+							"id": ""
+						},
+						"default_value": "",
+						"maxlength": "",
+						"placeholder": "",
+						"prepend": "",
+						"append": ""
+					},
+					{
+						"key": "field_662957a321f2b",
+						"label": "Secondary List IDs",
+						"name": "secondary_list_ids",
+						"aria-label": "",
+						"type": "textarea",
+						"instructions": "Enter one list ID per line. Existing subscribers will be checked to see if they are on these lists.",
+						"required": 0,
+						"conditional_logic": 0,
+						"wrapper": {
+							"width": "",
+							"class": "",
+							"id": ""
+						},
+						"default_value": "",
+						"maxlength": "",
+						"rows": 2,
+						"placeholder": "",
+						"new_lines": ""
+					},
+					{
+						"key": "field_6626b37baa6e2",
+						"label": "Server Code",
+						"name": "server_code",
+						"aria-label": "",
+						"type": "text",
+						"instructions": "",
+						"required": 0,
+						"conditional_logic": 0,
+						"wrapper": {
+							"width": "",
+							"class": "",
+							"id": ""
+						},
+						"default_value": "",
+						"maxlength": "",
+						"placeholder": "us1",
+						"prepend": "",
+						"append": ""
+					},
+					{
+						"key": "field_662960c4e5102",
+						"label": "Signup Form Link",
+						"name": "signup_form_link",
+						"aria-label": "",
+						"type": "url",
+						"instructions": "Users who unsubscribe will be directed to this link in order to resubscribe. New subscribers will be signed up automatically and do NOT visit this link.",
+						"required": 0,
+						"conditional_logic": 0,
+						"wrapper": {
+							"width": "",
+							"class": "",
+							"id": ""
+						},
+						"default_value": "",
+						"placeholder": ""
+					},
+					{
+						"key": "field_66269ed4714eb",
+						"label": "Subscription Message (above form)",
+						"name": "subscription_message",
+						"aria-label": "",
+						"type": "wysiwyg",
+						"instructions": "",
+						"required": 0,
+						"conditional_logic": 0,
+						"wrapper": {
+							"width": "",
+							"class": "",
+							"id": ""
+						},
+						"default_value": "<h2>Read every issue!<\/h2>\r\n<p>If you’re already a member of our family, enter your email below.<\/p>",
+						"tabs": "all",
+						"toolbar": "full",
+						"media_upload": 1,
+						"delay": 0
+					},
+					{
+						"key": "field_6626a7a1dafe4",
+						"label": "Disclaimer (below form)",
+						"name": "subscription_disclaimer",
+						"aria-label": "",
+						"type": "wysiwyg",
+						"instructions": "",
+						"required": 0,
+						"conditional_logic": 0,
+						"wrapper": {
+							"width": "",
+							"class": "",
+							"id": ""
+						},
+						"default_value": "<em>New emails will be signed up for our newsletter. Existing subscribers will be verified.<\/em>",
+						"tabs": "all",
+						"toolbar": "full",
+						"media_upload": 1,
+						"delay": 0
+					}
+				]
+			}
+		],
+		"location": [
+			[
+				{
+					"param": "options_page",
+					"operator": "==",
+					"value": "acf-options-settings"
+				}
+			]
+		],
+		"menu_order": 0,
+		"position": "normal",
+		"style": "default",
+		"label_placement": "left",
+		"instruction_placement": "label",
+		"hide_on_screen": "",
+		"active": true,
+		"description": "",
+		"show_in_rest": 0
+	}
+]
