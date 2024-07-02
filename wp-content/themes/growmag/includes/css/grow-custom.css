@@ -40,6 +40,15 @@ font-weight: 400, 600;
 	font-weight: 400;
 }
 
+/* Front page cover logo alignment */
+.cover-logo-front-page.logo-align-center {
+	margin: 0 auto;
+}
+
+.cover-logo-front-page.logo-align-right {
+	margin-left: auto;
+}
+
 
 /* Cover panel */
 /*
