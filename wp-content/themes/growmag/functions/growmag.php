@@ -213,6 +213,11 @@ function em_get_cover_header( $post_id = null ) {
 		),
 	);
 	
+	// Allow custom header image
+	if ( $img_id = get_field( 'header_image', $post_id ) ) {
+		$cover['image'] = $img_id;
+	}
+	
 	if ( get_field( 'photo_darkness', $post_id ) == 'light' ) {
 		$cover['logo']['image'] = get_field( 'logo_black', 'options', false );
 	}
