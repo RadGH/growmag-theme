@@ -6,8 +6,14 @@ foreach ( $menu as $key => $val ) {
 	$menu[ $key ] = $val->object_id;
 }
 */
-$menu = get_field( 'home_depts' );
-if ( $menu ) $menu = wp_list_pluck($menu, 'department');
+
+/**
+ * @var array $home_depts {
+ *     @type int   $department   Term ID
+ *     @type int[] $sticky_posts Post IDs to appear first
+ * }
+ */
+$home_depts = get_field( 'home_depts' );
 
 $post_not_in = array();
 if ( $rows = get_field( 'cover-stories' ) ) {
@@ -24,16 +30,44 @@ $weekenderPosts = get_posts( array(
 
 $first = true;
 
-foreach ( $menu as $deptID ) {
+foreach ( $home_depts as $d ) {
+	$deptID = $d['department'] ?? false;
+	$sticky_post_ids = $d['sticky_posts'] ?? array();
 	if ( empty($deptID) ) continue;
 	
-	$deptPosts = get_posts( array(
-		'no_found_rows' => true,
-		'showposts'     => 3,
-		'cat'           => $deptID,
+	$posts_to_display = 3;
+	$display_posts = array();
+	
+	$stickyPosts = $sticky_post_ids ? get_posts(array(
+		'posts_per_page' => $posts_to_display,
+		// 'cat'           => $deptID,
 		'post__not_in'  => $post_not_in,
-	) );
-	output_posts_from_query( $deptPosts, get_category_link( $deptID ), get_cat_name( $deptID ) );
+		'post__in'      => $sticky_post_ids,
+	)) : array();
+	
+	if ( $stickyPosts ) {
+		$posts_to_display -= count($stickyPosts);
+		$display_posts = array_merge( $display_posts, $stickyPosts );
+		$post_not_in = array_merge( $post_not_in, wp_list_pluck( $stickyPosts, 'ID' ) );
+	}
+	
+	if ( $posts_to_display > 0 ) {
+		$deptPosts = get_posts( array(
+			'posts_per_page' => $posts_to_display,
+			'cat'           => $deptID,
+			'post__not_in'  => $post_not_in,
+		));
+		
+		if ( $deptPosts ) {
+			$posts_to_display -= count($deptPosts);
+			$display_posts = array_merge( $display_posts, $deptPosts );
+			$post_not_in = array_merge( $post_not_in, wp_list_pluck( $deptPosts, 'ID' ) );
+		}
+	}
+	
+	if ( $display_posts ) {
+		output_posts_from_query( $display_posts, get_category_link( $deptID ), get_cat_name( $deptID ) );
+	}
 	
 	// Display Weekender Posts as the second item
 	if ( $first ) {
