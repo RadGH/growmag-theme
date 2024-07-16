@@ -451,6 +451,9 @@ function gm_display_primary_overlay( $post_id = null, $button_url = null, $butto
 	$title = get_the_title( $post_id );
 	$subtitle = gm_get_the_subtitle( $post_id );
 	
+	// Allow posts to customize the button text using the Read More Button Text field
+	$button_label = get_read_more_text( $post_id, $button_label );
+	
 	?>
 	<div class="overlay">
 		

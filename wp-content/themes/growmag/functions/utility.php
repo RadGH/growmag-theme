@@ -1820,3 +1820,25 @@ function ld_handle_upload_from_path( $path, $attach_to_post = 0, $add_to_media =
 
 	return $result;
 }
+
+/**
+ * Get the "Read More" text label to use on archive pages for a post.
+ * This can be customized per post. Videos may want "Watch More", for example.
+ *
+ * @param int|null $post_id
+ *
+ * @return string
+ */
+function get_read_more_text( $post_id = null, $default = 'Read More' ) {
+	if ( $post_id === null ) {
+		$post_id = get_the_ID();
+	}
+
+	$read_more_text = get_post_meta( $post_id, 'read_more_button_text', true );
+	
+	if ( ! $read_more_text ) {
+		$read_more_text = $default;
+	}
+
+	return $read_more_text;
+}
