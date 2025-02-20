@@ -539,17 +539,17 @@ h2 {
 }
 
 /* Drop shadows */
-.dark-photo #menu-buttons .menu-button {
-	-webkit-filter: drop-shadow(0px 1px 2px #000000CC);
-	filter: drop-shadow(0px 1px 2px #000000CC);
-}
+@supports ( filter: drop-shadow(0px 1px 2px #000000CC) ) {
+	.dark-photo #menu-buttons .menu-button {
+		filter: drop-shadow(0px 1px 2px #000000CC);
+	}
 
-.dark-photo .eugmaglogo,
-.dark-photo .category-header,
-.dark-photo .cover-panel,
-.dark-photo .cover-logo img {
-	-webkit-filter: drop-shadow(0px 1px 2px #00000088);
-	filter: drop-shadow(0px 1px 2px #00000088);
+	.dark-photo .eugmaglogo,
+	.dark-photo .category-header,
+	.dark-photo .cover-panel,
+	.dark-photo .cover-logo img {
+		filter: drop-shadow(0px 1px 2px #00000088);
+	}
 }
 
 .dark-photo {color: #fff}

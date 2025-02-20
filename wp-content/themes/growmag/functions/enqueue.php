@@ -18,7 +18,7 @@ function ld_enqueue_url( $file ) {
 * Get the last modification time of a theme file
 */
 function ld_mtime( $file ) {
-	return filemtime( ld_enqueue_path( $file ) );
+	return current_time( 'Y-m-d', filemtime( ld_enqueue_path( $file ) ) );
 }
 
 /*
@@ -102,7 +102,7 @@ function ld_enqueue_theme_scripts() {
 	ld_enqueue_script( '/includes/js/main.js', array( 'jquery' ) );
 	ld_enqueue_style(  '/includes/libraries/normalize/normalize.min.css', array(), '3.0.2' );
 	ld_enqueue_style(  '/includes/css/style.css' );
-	ld_enqueue_style(  '/includes/css/grow-custom.css' );
+	ld_enqueue_style(  '/includes/css/grow-custom.css', array(), '2024-11-19' );
 
 	ld_enqueue_style(  '/includes/css/print.css', array(), null, 'print' );
 

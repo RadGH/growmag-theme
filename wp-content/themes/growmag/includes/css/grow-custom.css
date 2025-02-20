@@ -323,3 +323,19 @@ html .gform_wrapper.gravity-theme .gfield_required .gfield_required_text,
     font-style: normal;
 }
 /* End: Gravity Forms */
+
+/* c-med subscriptions */
+.grow-c-med-products {
+    max-width: 720px;
+    margin: 20px auto;
+}
+
+@media ( max-width: 600px ) {
+	.grow-c-med-products .woocommerce ul.products.columns-2 li.product:nth-child(1n) {
+		width: auto;
+		float: none;
+		max-width: 350px;
+		margin: 0 auto 3em;
+	}
+}
+/* end: c-med subscriptions */
