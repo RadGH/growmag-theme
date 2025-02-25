@@ -1,35 +1,8 @@
 <?php
 
-// Grow mag shop temporarily disabled
-function gm_is_shop_enabled() {
-	return false;
-}
-
-// Redirect away from shop pages if the shop is disabled
-function gm_shop_disabled_redirects() {
-	if ( gm_is_shop_enabled() ) return;
-	
-	$is_wc = false;
-	
-	if ( is_shop() || is_product_category() || is_product_tag() ) {
-		$is_wc = true;
-	}
-	
-	if ( get_post_type() == 'product' ) {
-		$is_wc = true;
-	}
-	
-	if ( $is_wc ) {
-		wp_redirect( home_url() );
-		exit;
-	}
-}
-add_action( 'template_redirect', 'gm_shop_disabled_redirects' );
-
-// Hide the subscribe button if the shop is disabled
+// SHOP REMOVAL:
+// 1. Hide the subscribe button
 function gm_shop_disabled_css() {
-	if ( gm_is_shop_enabled() ) return;
-	
 	?>
 	<style>
 		.menu-button-subscribe {
@@ -40,15 +13,15 @@ function gm_shop_disabled_css() {
 }
 add_action( 'wp_print_scripts', 'gm_shop_disabled_css', 100 );
 
-// Remove shop links from nav menus
+// 2. Remove shop links from nav menus
+/*
 function gm_shop_disabled_nav_menu( $html, $args ) {
-	if ( gm_is_shop_enabled() ) return $html;
-	
 	$html = preg_replace( '/<li .*?class=".*?menu-item-.*?href=".*?\/shop\/.*?<\/li>/', '', $html );
 	
 	return $html;
 }
 add_filter( 'wp_nav_menu_items', 'gm_shop_disabled_nav_menu', 10, 2 );
+*/
 
 /* ===========================
 

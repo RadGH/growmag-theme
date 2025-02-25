@@ -44,7 +44,7 @@ add_action( 'wp_enqueue_scripts', 'add_isotope', 30 );
 
 
 function add_woocommerce_category_filters() {
-	$product_categories = get_terms( 'product_cat', array( "hide_empty" => 1 ) );
+	$product_categories = get_terms( 'product_cat' );
 	if ( !$product_categories ) return;
 	
 	$active_obj = get_queried_object();
@@ -58,6 +58,9 @@ function add_woocommerce_category_filters() {
 	echo '<li><a href="' . get_permalink( woocommerce_get_page_id( 'shop' ) ) . '" class="'. ($active_term_id === false ? 'active' : '') .'" data-filterclass="product">All</a></li>';
 	
 	foreach ( $product_categories as $product_category ) {
+		// Ignore the uncategorized term (#83)
+		if ( $product_category->term_id == 83 ) continue;
+		
 		$filtername = str_replace(" ","-",strtolower($product_category->name));
 		echo '<li><a href="' . get_term_link( $product_category ) . '" class="'. ($active_term_id === $product_category->term_id ? 'active' : '') .'" data-filterclass="product_cat-'. $filtername .'">' . $product_category->name . '</a></li>';
 	}
